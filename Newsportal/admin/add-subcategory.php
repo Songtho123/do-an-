@@ -49,20 +49,13 @@ $error="Something went wrong . Please try again.";
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-<!-- Top Bar Start -->
  <?php include('includes/topheader.php');?>
-<!-- Top Bar End -->
 
-
-<!-- ========== Left Sidebar Start ========== -->
            <?php include('includes/leftsidebar.php');?>
- <!-- Left Sidebar End -->
 
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -86,8 +79,6 @@ $error="Something went wrong . Please try again.";
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
 
                         <div class="row">
                             <div class="col-sm-12">
@@ -99,14 +90,12 @@ $error="Something went wrong . Please try again.";
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -120,16 +109,15 @@ $error="Something went wrong . Please try again.";
 
 
 
-                        			<div class="row">
-                        				<div class="col-md-6">
-                        					<form class="form-horizontal" name="category" method="post">
-	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Category</label>
-	                                                <div class="col-md-10">
-	                                                  <select class="form-control" name="category" required>
-                                                   <option value="">Select Category </option>
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-horizontal" name="category" method="post">
+	                <div class="form-group">
+	                    <label class="col-md-2 control-label">Category</label>
+	                    <div class="col-md-10">
+	                        <select class="form-control" name="category" required>
+                        <option value="">Select Category </option>
 <?php
-// Feching active categories
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
@@ -137,79 +125,42 @@ while($result=mysqli_fetch_array($ret))
 <option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
 <?php } ?>
 
-                                                        </select> 
-	                                                </div>
-	                                            </div>
-	                                     
-
-
-
-    <div class="form-group">
-                                                    <label class="col-md-2 control-label">Sub-Category</label>
-                                                    <div class="col-md-10">
-                                                        <input type="text" class="form-control" value="" name="subcategory" required>
-                                                    </div>
-                                                </div>
-                                         
-
-
-
-
-
-	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Sub-Category Description</label>
-	                                                <div class="col-md-10">
-	                                                    <textarea class="form-control" rows="5" name="sucatdescription" required></textarea>
-	                                                </div>
-	                                            </div>
+         </select> 
+	        </div>
+	            </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Sub-Category</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" value="" name="subcategory" required>
+                    </div>
+                        </div>
+	                <div class="form-group">
+	                    <label class="col-md-2 control-label">Sub-Category Description</label>
+	                    <div class="col-md-10">
+	                        <textarea class="form-control" rows="5" name="sucatdescription" required></textarea>
+	                    </div>
+	                    </div>
 
         <div class="form-group">
-                                                    <label class="col-md-2 control-label">&nbsp;</label>
-                                                    <div class="col-md-10">
-                                                  
-                                                <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submitsubcat">
-                                                    Submit
-                                                </button>
-                                                    </div>
-                                                </div>
+            <label class="col-md-2 control-label">&nbsp;</label>
+            <div class="col-md-10">                                   
+                <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submitsubcat">Submit</button>
+                </div>
+                </div>
 
-	                                        </form>
-                        				</div>
+	        </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
-
-                        			</div>
-
-
-                        			
-
-
-
-
-           
-                       
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-<?php include('includes/footer.php');?>
 
             </div>
 
-
-
-
         </div>
-        <!-- END wrapper -->
-
-
 
         <script>
             var resizefunc = [];

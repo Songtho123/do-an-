@@ -13,7 +13,6 @@ if( $_GET['disid'])
 	$query=mysqli_query($con,"update tblcomments set status='0' where id='$id'");
 	$msg="Comment unapprove ";
 }
-// Code for restore
 if($_GET['appid'])
 {
 	$id=intval($_GET['appid']);
@@ -21,7 +20,6 @@ if($_GET['appid'])
 	$msg="Comment approved";
 }
 
-// Code for deletion
 if($_GET['action']=='del' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
@@ -49,24 +47,13 @@ if($_GET['action']=='del' && $_GET['rid'])
 
 
     <body class="fixed-left">
-
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
 <?php include('includes/topheader.php');?>
 
-            <!-- ========== Left Sidebar Start ========== -->
 <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
 
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -90,8 +77,6 @@ if($_GET['action']=='del' && $_GET['rid'])
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
 
 <div class="row">
 <div class="col-sm-6">  
@@ -109,14 +94,6 @@ if($_GET['action']=='del' && $_GET['rid'])
 
 
 </div>
-                                 
-                                 
-                                    
-
-
-                                   
-
-
                                     <div class="row">
 										<div class="col-md-12">
 											<div class="demo-box m-t-20">
@@ -142,7 +119,6 @@ $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
-
  <tr>
 <th scope="row"><?php echo htmlentities($cnt);?></th>
 <td><?php echo htmlentities($row['name']);?></td>
@@ -155,7 +131,6 @@ else:
 echo "Approved";
 endif;
 ?></td>
-
 
 <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><?php echo htmlentities($row['PostTitle']);?></a> </td>
 <td><?php echo htmlentities($row['postingDate']);?></td>
@@ -175,20 +150,10 @@ $cnt++;
                                                   
                                                     </table>
                                                 </div>
-
-
-
-
 											</div>
-
 										</div>
-
-							
 									</div>
-                                    <!--- end row -->
-
-
-                                    
+                 
 <div class="row">
 <div class="col-md-12">
 <div class="demo-box m-t-20">
@@ -196,46 +161,17 @@ $cnt++;
 
 
  </div>
-
-
-
-
-                                                
+     
 											</div>
-
-										</div>
-
-							
+										</div>							
 									</div>                  
-                                  
 
+                    </div>
 
-
-                                   
-
-
-
-
-
-
-                        
-
-
-
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-<?php include('includes/footer.php');?>
+                </div> 
             </div>
 
         </div>
-        <!-- END wrapper -->
-
-
-
         <script>
             var resizefunc = [];
         </script>

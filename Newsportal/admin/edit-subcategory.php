@@ -48,21 +48,12 @@ $error="Something went wrong . Please try again.";
 
 
     <body class="fixed-left">
-
-        <!-- Begin page -->
         <div id="wrapper">
-
-<!-- Top Bar Start -->
  <?php include('includes/topheader.php');?>
-<!-- Top Bar End -->
 
-
-<!-- ========== Left Sidebar Start ========== -->
            <?php include('includes/leftsidebar.php');?>
- <!-- Left Sidebar End -->
 
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -86,9 +77,6 @@ $error="Something went wrong . Please try again.";
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
@@ -98,15 +86,13 @@ $error="Something went wrong . Please try again.";
 
 
 <div class="row">
-<div class="col-sm-6">  
-<!---Success Message--->  
+<div class="col-sm-6">   
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -117,7 +103,6 @@ $error="Something went wrong . Please try again.";
 </div>
 
 <?php 
-//fetching Category details
 $subcatid=intval($_GET['scid']);
 $query=mysqli_query($con,"Select tblcategory.CategoryName as catname,tblcategory.id as catid,tblsubcategory.Subcategory as subcatname,tblsubcategory.SubCatDescription as SubCatDescription,tblsubcategory.PostingDate as subcatpostingdate,tblsubcategory.UpdationDate as subcatupdationdate,tblsubcategory.SubCategoryId as subcatid from tblsubcategory join tblcategory on tblsubcategory.CategoryId=tblcategory.id where tblsubcategory.Is_Active=1 and  SubCategoryId='$subcatid'");
 $cnt=1;
@@ -137,7 +122,6 @@ while($row=mysqli_fetch_array($query))
 	                                                  <select class="form-control" name="category" required>
                                                    <option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['catname']);?></option>
 <?php
-// Feching active categories
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
@@ -147,22 +131,13 @@ while($result=mysqli_fetch_array($ret))
 
                                                         </select> 
 	                                                </div>
-	                                            </div>
-	                                     
-
-
-
+	                                            </div>                 
     <div class="form-group">
                                                     <label class="col-md-2 control-label">Sub-Category</label>
                                                     <div class="col-md-10">
                                                         <input type="text" class="form-control" value="<?php echo htmlentities($row['subcatname']);?>" name="subcategory" required>
                                                     </div>
                                                 </div>
-                                         
-
-
-
-
 
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Sub-Category Description</label>
@@ -188,38 +163,17 @@ while($result=mysqli_fetch_array($ret))
 
 
                         			</div>
-
-
-                        			
-
-
-
-
-           
-                       
-
-
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
+                    </div> 
+                </div> 
 
 
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-<?php include('includes/footer.php');?>
 
             </div>
 
-
-
-
         </div>
-        <!-- END wrapper -->
-
-
 
         <script>
             var resizefunc = [];

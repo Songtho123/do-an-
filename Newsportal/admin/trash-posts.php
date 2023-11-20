@@ -21,8 +21,6 @@ $error="Something went wrong . Please try again.";
 } 
 }
 
-
-// Code for Forever deletionparmdel
 if($_GET['presid'])
 {
     $id=intval($_GET['presid']);
@@ -40,18 +38,13 @@ if($_GET['presid'])
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <!-- App title -->
         <title>Newsportal | Manage Posts</title>
 
-        <!--Morris Chart CSS -->
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
-        <!-- jvectormap -->
         <link href="../plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
 
-        <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -61,38 +54,19 @@ if($_GET['presid'])
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
-        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
         <script src="assets/js/modernizr.min.js"></script>
-
     </head>
-
-
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
            <?php include('includes/topheader.php');?>
 
-            <!-- ========== Left Sidebar Start ========== -->
            <?php include('includes/leftsidebar.php');?>
 
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
 
                         <div class="row">
 							<div class="col-xs-12">
@@ -113,7 +87,6 @@ if($_GET['presid'])
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 
 <div class="row">
@@ -133,7 +106,6 @@ if($_GET['presid'])
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
-                         
 
                                     <div class="table-responsive">
 <table class="table table-colored table-centered table-inverse m-0">
@@ -182,27 +154,11 @@ while($row=mysqli_fetch_array($query))
                                 </div>
                             </div>
                         </div>
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-       <?php include('includes/footer.php');?>
+                    </div> 
+                </div> 
 
             </div>
-
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
-
         </div>
-        <!-- END wrapper -->
-
-
 
         <script>
             var resizefunc = [];

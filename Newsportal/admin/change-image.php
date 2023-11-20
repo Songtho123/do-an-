@@ -11,23 +11,21 @@ if(isset($_POST['update']))
 {
 
 $imgfile=$_FILES["postimage"]["name"];
-// get the image extension
+
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-// allowed extensions
+
 $allowed_extensions = array(".jpg","jpeg",".png",".gif");
-// Validation for allowed extensions .in_array() function searches an array for a specific value.
+
 if(!in_array($extension,$allowed_extensions))
 {
 echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 }
 else
 {
-//rename the image file
+
 $imgnewfile=md5($imgfile).$extension;
-// Code for move image into directory
+
 move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
-
-
 
 $postid=intval($_GET['pid']);
 $query=mysqli_query($con,"update tblposts set PostImage='$imgnewfile' where id='$postid'");
@@ -49,22 +47,16 @@ $error="Something went wrong . Please try again.";
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <!-- App title -->
-        <title>Newsportal | Add Post</title>
 
-        <!-- Summernote css -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <title>Newsportal | Add Post</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
 
-        <!-- Select2 -->
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- Jquery filer css -->
         <link href="../plugins/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
         <link href="../plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
 
-        <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -87,26 +79,13 @@ function getSubCat(val) {
   }
   </script>
     </head>
-
-
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
            <?php include('includes/topheader.php');?>
-            <!-- ========== Left Sidebar Start ========== -->
              <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -133,18 +112,15 @@ function getSubCat(val) {
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -196,32 +172,14 @@ while($row=mysqli_fetch_array($query))
 <button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update </button>
 </form>
                                     </div>
-                                </div> <!-- end p-20 -->
-                            </div> <!-- end col -->
+                                </div> 
+                            </div> 
                         </div>
-                        <!-- end row -->
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-           <?php include('includes/footer.php');?>
+                    </div> 
+                </div>
 
             </div>
-
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
-
         </div>
-        <!-- END wrapper -->
-
-
-
         <script>
             var resizefunc = [];
         </script>

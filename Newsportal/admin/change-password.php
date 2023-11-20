@@ -9,16 +9,16 @@ header('location:index.php');
 else{
 if(isset($_POST['submit']))
 {
-//Current Password hashing 
+
 $password=$_POST['password'];
 $options = ['cost' => 12];
 $hashedpass=password_hash($password, PASSWORD_BCRYPT, $options);
 $adminid=$_SESSION['login'];
-// new password hashing 
+
 $newpassword=$_POST['newpassword'];
 $newhashedpass=password_hash($newpassword, PASSWORD_BCRYPT, $options);
 
-date_default_timezone_set('Asia/Kolkata');// change according timezone
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 $sql=mysqli_query($con,"SELECT AdminPassword FROM  tbladmin where AdminUserName='$adminid' || AdminEmailId='$adminid'");
 $num=mysqli_fetch_array($sql);
@@ -95,24 +95,15 @@ return true;
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-<!-- Top Bar Start -->
  <?php include('includes/topheader.php');?>
-<!-- Top Bar End -->
 
-
-<!-- ========== Left Sidebar Start ========== -->
-           <?php include('includes/leftsidebar.php');?>
- <!-- Left Sidebar End -->
+<?php include('includes/leftsidebar.php');?>
 
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
-
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
@@ -130,7 +121,6 @@ return true;
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 
                         <div class="row">
@@ -143,14 +133,12 @@ return true;
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -159,10 +147,6 @@ return true;
 
 </div>
 </div>
-
-
-
-
 
 <div class="row">
 <div class="col-md-10">
@@ -200,38 +184,16 @@ return true;
                                                 </button>
                                                     </div>
                                                 </div>
-
 	                                        </form>
                         				</div>
-
-
                         			</div>
-
-
-                        			
-
-
-
-
-           
-                       
-
-
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-<?php include('includes/footer.php');?>
-
+                    </div> 
+                </div> 
             </div>
         </div>
-
         <script>
             var resizefunc = [];
         </script>

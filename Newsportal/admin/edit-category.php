@@ -32,7 +32,6 @@ $error="Something went wrong . Please try again.";
 
         <title>Newsportal | Add Category</title>
 
-        <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -47,24 +46,14 @@ $error="Something went wrong . Please try again.";
 
 
     <body class="fixed-left">
-
-        <!-- Begin page -->
         <div id="wrapper">
-
-<!-- Top Bar Start -->
  <?php include('includes/topheader.php');?>
-<!-- Top Bar End -->
 
-
-<!-- ========== Left Sidebar Start ========== -->
            <?php include('includes/leftsidebar.php');?>
- <!-- Left Sidebar End -->
 
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
 
                         <div class="row">
 							<div class="col-xs-12">
@@ -85,9 +74,6 @@ $error="Something went wrong . Please try again.";
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
@@ -98,14 +84,12 @@ $error="Something went wrong . Please try again.";
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -157,36 +141,15 @@ while($row=mysqli_fetch_array($query))
 
 
                         			</div>
-
-
-                        			
-
-
-
-
-           
-                       
-
-
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-<?php include('includes/footer.php');?>
+                    </div> 
+                </div> 
 
             </div>
-
-
         </div>
-        <!-- END wrapper -->
-
-
 
         <script>
             var resizefunc = [];

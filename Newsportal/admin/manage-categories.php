@@ -13,7 +13,7 @@ if($_GET['action']=='del' && $_GET['rid'])
 	$query=mysqli_query($con,"update tblcategory set Is_Active='0' where id='$id'");
 	$msg="Category deleted ";
 }
-// Code for restore
+
 if($_GET['resid'])
 {
 	$id=intval($_GET['resid']);
@@ -21,7 +21,6 @@ if($_GET['resid'])
 	$msg="Category restored successfully";
 }
 
-// Code for Forever deletionparmdel
 if($_GET['action']=='parmdel' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
@@ -50,23 +49,13 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
 <?php include('includes/topheader.php');?>
 
-            <!-- ========== Left Sidebar Start ========== -->
 <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
 
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -90,8 +79,6 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
 
 <div class="row">
 <div class="col-sm-6">  
@@ -107,15 +94,7 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
 <strong>Oh snap!</strong> <?php echo htmlentities($delmsg);?></div>
 <?php } ?>
 
-
 </div>
-                                 
-                                 
-                                    
-
-
-                                   
-
 
                                     <div class="row">
 										<div class="col-md-12">
@@ -163,20 +142,12 @@ $cnt++;
                                                   
                                                     </table>
                                                 </div>
-
-
-
-
 											</div>
 
 										</div>
 
-							
 									</div>
-                                    <!--- end row -->
-
-
-                                    
+                       
 <div class="row">
 <div class="col-md-12">
 <div class="demo-box m-t-20">
@@ -206,7 +177,6 @@ $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
 ?>
-
  <tr>
 <th scope="row"><?php echo htmlentities($cnt);?></th>
 <td><?php echo htmlentities($row['CategoryName']);?></td>
@@ -222,47 +192,16 @@ $cnt++;
 </tbody>
                                                   
                                                     </table>
-                                                </div>
-
-
-
-                                                
+                                                </div> 
 											</div>
-
 										</div>
-
-							
 									</div>                  
-                                  
-
-
-
-                                   
-
-
-
-
-
-
-                        
-
-
-
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-<?php include('includes/footer.php');?>
+                    </div>
+                </div>
             </div>
 
         </div>
-        <!-- END wrapper -->
-
-
-
-        <script>
+     <script>
             var resizefunc = [];
         </script>
 

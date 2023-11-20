@@ -13,7 +13,7 @@ if( $_GET['disid'])
 	$query=mysqli_query($con,"update tblcomments set status='0' where id='$id'");
 	$msg="Comment unapprove ";
 }
-// Code for restore
+
 if($_GET['appid'])
 {
 	$id=intval($_GET['appid']);
@@ -21,7 +21,6 @@ if($_GET['appid'])
 	$msg="Comment approved";
 }
 
-// Code for deletion
 if($_GET['action']=='del' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
@@ -49,24 +48,10 @@ if($_GET['action']=='del' && $_GET['rid'])
 
 
     <body class="fixed-left">
-
-        <!-- Begin page -->
         <div id="wrapper">
-
-            <!-- Top Bar Start -->
 <?php include('includes/topheader.php');?>
-
-            <!-- ========== Left Sidebar Start ========== -->
 <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -90,8 +75,6 @@ if($_GET['action']=='del' && $_GET['rid'])
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
-
 
 <div class="row">
 <div class="col-sm-6">  
@@ -109,14 +92,6 @@ if($_GET['action']=='del' && $_GET['rid'])
 
 
 </div>
-                                 
-                                 
-                                    
-
-
-                                   
-
-
                                     <div class="row">
 										<div class="col-md-12">
 											<div class="demo-box m-t-20">
@@ -175,67 +150,27 @@ $cnt++;
                                                   
                                                     </table>
                                                 </div>
-
-
-
-
 											</div>
 
 										</div>
 
-							
 									</div>
-                                    <!--- end row -->
-
-
-                                    
+                
 <div class="row">
 <div class="col-md-12">
 <div class="demo-box m-t-20">
 <div class="m-b-30">
-
-
  </div>
-
-
-
-
-                                                
+                             
 											</div>
-
 										</div>
-
-							
 									</div>                  
-                                  
 
-
-
-                                   
-
-
-
-
-
-
-                        
-
-
-
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-<?php include('includes/footer.php');?>
+                    </div> 
+                </div> 
             </div>
 
         </div>
-        <!-- END wrapper -->
-
-
-
         <script>
             var resizefunc = [];
         </script>
@@ -250,8 +185,6 @@ $cnt++;
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 

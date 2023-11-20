@@ -8,7 +8,6 @@ header('location:index.php');
 }
 else{
 
-// For adding post  
 if(isset($_POST['submit']))
 {
 $posttitle=$_POST['posttitle'];
@@ -18,20 +17,20 @@ $postdetails=$_POST['postdescription'];
 $arr = explode(" ",$posttitle);
 $url=implode("-",$arr);
 $imgfile=$_FILES["postimage"]["name"];
-// get the image extension
+
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-// allowed extensions
+
 $allowed_extensions = array(".jpg","jpeg",".png",".gif");
-// Validation for allowed extensions .in_array() function searches an array for a specific value.
+
 if(!in_array($extension,$allowed_extensions))
 {
 echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
 }
 else
 {
-//rename the image file
+
 $imgnewfile=md5($imgfile).$extension;
-// Code for move image into directory
+
 move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
 
 $status=1;
@@ -55,22 +54,16 @@ $error="Something went wrong . Please try again.";
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <!-- App title -->
-        <title>Newsportal | Add Post</title>
 
-        <!-- Summernote css -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <title>Newsportal | Add Post</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
 
-        <!-- Select2 -->
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
 
-        <!-- Jquery filer css -->
         <link href="../plugins/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
         <link href="../plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
 
-        <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -97,22 +90,12 @@ function getSubCat(val) {
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
            <?php include('includes/topheader.php');?>
-            <!-- ========== Left Sidebar Start ========== -->
              <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
 
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -136,18 +119,15 @@ function getSubCat(val) {
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -175,7 +155,6 @@ function getSubCat(val) {
 <select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
 <option value="">Select Category </option>
 <?php
-// Feching active categories
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
@@ -218,32 +197,15 @@ while($result=mysqli_fetch_array($ret))
  <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
                                         </form>
                                     </div>
-                                </div> <!-- end p-20 -->
-                            </div> <!-- end col -->
+                                </div> 
+                            </div> 
                         </div>
-                        <!-- end row -->
+                    </div> 
 
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-           <?php include('includes/footer.php');?>
+                </div> 
 
             </div>
-
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
-
         </div>
-        <!-- END wrapper -->
-
-
-
         <script>
             var resizefunc = [];
         </script>
@@ -278,12 +240,11 @@ while($result=mysqli_fetch_array($ret))
             jQuery(document).ready(function(){
 
                 $('.summernote').summernote({
-                    height: 240,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: false                 // set focus to editable area after initializing summernote
+                    height: 240,                 
+                    minHeight: null,             
+                    maxHeight: null,             
+                    focus: false                
                 });
-                // Select2
                 $(".select2").select2();
 
                 $(".select2-limiting").select2({
@@ -293,7 +254,6 @@ while($result=mysqli_fetch_array($ret))
         </script>
   <script src="../plugins/switchery/switchery.min.js"></script>
 
-        <!--Summernote js-->
         <script src="../plugins/summernote/summernote.min.js"></script>
 
     

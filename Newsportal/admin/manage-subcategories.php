@@ -13,7 +13,6 @@ if($_GET['action']=='del' && $_GET['scid'])
 	$query=mysqli_query($con,"update  tblsubcategory set Is_Active='0' where SubCategoryId='$id'");
 	$msg="Category deleted ";
 }
-// Code for restore
 if($_GET['resid'])
 {
 	$id=intval($_GET['resid']);
@@ -21,7 +20,6 @@ if($_GET['resid'])
 	$msg="Category restored successfully";
 }
 
-// Code for Forever deletionparmdel
 if($_GET['action']=='perdel' && $_GET['scid'])
 {
 	$id=intval($_GET['scid']);
@@ -50,23 +48,12 @@ if($_GET['action']=='perdel' && $_GET['scid'])
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
 <?php include('includes/topheader.php');?>
 
-            <!-- ========== Left Sidebar Start ========== -->
 <?php include('includes/leftsidebar.php');?>
-            <!-- Left Sidebar End -->
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -90,7 +77,6 @@ if($_GET['action']=='perdel' && $_GET['scid'])
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 
 <div class="row">
@@ -109,13 +95,6 @@ if($_GET['action']=='perdel' && $_GET['scid'])
 
 
 </div>
-                                 
-                                 
-                                    
-
-
-                                   
-
 
                                     <div class="row">
 										<div class="col-md-12">
@@ -177,20 +156,9 @@ $cnt++;
                                                   
                                                     </table>
                                                 </div>
-
-
-
-
 											</div>
-
 										</div>
-
-							
-									</div>
-                                    <!--- end row -->
-
-
-                                    
+									</div>                    
 <div class="row">
 <div class="col-md-12">
 <div class="demo-box m-t-20">
@@ -250,44 +218,16 @@ $cnt++;
                                                   
                                                     </table>
                                                 </div>
-
-
-
-                                                
 											</div>
-
-										</div>
-
-							
+										</div>							
 									</div>                  
-                                  
 
+                    </div> 
+                </div>
 
-
-                                   
-
-
-
-
-
-
-                        
-
-
-
-
-
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-<?php include('includes/footer.php');?>
             </div>
 
         </div>
-        <!-- END wrapper -->
-
-
 
         <script>
             var resizefunc = [];

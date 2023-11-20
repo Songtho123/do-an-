@@ -49,20 +49,13 @@ $error="Something went wrong . Please try again.";
 
     <body class="fixed-left">
 
-        <!-- Begin page -->
         <div id="wrapper">
 
-<!-- Top Bar Start -->
  <?php include('includes/topheader.php');?>
-<!-- Top Bar End -->
 
-
-<!-- ========== Left Sidebar Start ========== -->
            <?php include('includes/leftsidebar.php');?>
- <!-- Left Sidebar End -->
 
             <div class="content-page">
-                <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
@@ -86,7 +79,6 @@ $error="Something went wrong . Please try again.";
                                 </div>
 							</div>
 						</div>
-                        <!-- end row -->
 
 
                         <div class="row">
@@ -99,14 +91,12 @@ $error="Something went wrong . Please try again.";
 
 <div class="row">
 <div class="col-sm-6">  
-<!---Success Message--->  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
 <strong>Well done!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
-<!---Error Message--->
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
 <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
@@ -153,27 +143,12 @@ $error="Something went wrong . Please try again.";
 
                         			</div>
 
-
-                        			
-
-
-
-
-           
-                       
-
-
                                 </div>
                             </div>
                         </div>
-                        <!-- end row -->
 
-
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-<?php include('includes/footer.php');?>
+                    </div> 
+                </div> 
 
             </div>
         </div>
