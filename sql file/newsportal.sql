@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 20, 2023 lúc 01:01 PM
+-- Thời gian đã tạo: Th10 20, 2023 lúc 03:34 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -29,20 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbladmin` (
   `id` int(11) NOT NULL,
-  `AdminUserName` varchar(255) NOT NULL,
-  `AdminPassword` varchar(255) NOT NULL,
+  `AdminUserName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `AdminPassword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `AdminEmailId` varchar(255) NOT NULL,
-  `Is_Active` int(11) NOT NULL,
-  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbladmin`
 --
 
-INSERT INTO `tbladmin` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, `Is_Active`, `CreationDate`, `UpdationDate`) VALUES
-(1, 'admin', '$2y$12$Pva1.RkyZLC7ZW/pLlHAS.ukKvo7M9uJPzThstcmArImfkCdzNtM2', 'campcodes@gmail.com', 1, '2020-03-27 17:51:00', '0000-00-00 00:00:00');
+INSERT INTO `tbladmin` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, `CreationDate`) VALUES
+(1, 'admin', '$2y$12$Pva1.RkyZLC7ZW/pLlHAS.ukKvo7M9uJPzThstcmArImfkCdzNtM2', 'campcodes@gmail.comsongtho123@gmail.com', '2020-03-27 17:51:00'),
+(2, 'admin1', '123', 'songtho123@gmail.com', '2023-11-20 14:19:13');
 
 -- --------------------------------------------------------
 
@@ -52,10 +51,10 @@ INSERT INTO `tbladmin` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, 
 
 CREATE TABLE `tblcategory` (
   `id` int(11) NOT NULL,
-  `CategoryName` varchar(200) DEFAULT NULL,
-  `Description` mediumtext DEFAULT NULL,
+  `CategoryName` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `Description` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
-  `UpdationDate` timestamp NULL DEFAULT NULL,
+  `UpdationDate` datetime DEFAULT NULL,
   `Is_Active` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -64,11 +63,12 @@ CREATE TABLE `tblcategory` (
 --
 
 INSERT INTO `tblcategory` (`id`, `CategoryName`, `Description`, `PostingDate`, `UpdationDate`, `Is_Active`) VALUES
-(2, 'Bollywood', 'Bollywood News', '2018-06-06 10:28:09', '2018-06-30 18:41:07', 1),
-(3, 'Sports', 'Related to sports news', '2018-06-06 10:35:09', '2018-06-14 11:11:55', 1),
-(5, 'Entertainment', 'Entertainment related  News', '2018-06-14 05:32:58', '2018-06-14 05:33:41', 1),
-(6, 'Politics', 'Politics', '2018-06-22 15:46:09', '0000-00-00 00:00:00', 1),
-(7, 'Business', 'Business', '2018-06-22 15:46:22', '0000-00-00 00:00:00', 0);
+(13, 'Bóng đá', 'Tin bóng đá', '2023-11-20 13:44:38', NULL, 1),
+(14, 'Bóng chuyền', 'Tin bóng chuyền', '2023-11-20 13:44:58', NULL, 1),
+(15, 'Bóng rổ', 'Tin bóng rổ', '2023-11-20 13:45:08', NULL, 1),
+(16, 'Cầu lông', 'Tin cầu lông', '2023-11-20 13:45:17', NULL, 1),
+(17, 'Bơi lội', 'Tin bơi lội', '2023-11-20 13:45:28', NULL, 1),
+(18, 'Esport', 'Tin Esport\r\n', '2023-11-20 13:45:55', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -78,10 +78,10 @@ INSERT INTO `tblcategory` (`id`, `CategoryName`, `Description`, `PostingDate`, `
 
 CREATE TABLE `tblcomments` (
   `id` int(11) NOT NULL,
-  `postId` char(11) DEFAULT NULL,
-  `name` varchar(120) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `comment` mediumtext DEFAULT NULL,
+  `postId` char(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `name` varchar(120) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `comment` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
   `status` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -91,10 +91,8 @@ CREATE TABLE `tblcomments` (
 --
 
 INSERT INTO `tblcomments` (`id`, `postId`, `name`, `email`, `comment`, `postingDate`, `status`) VALUES
-(1, '12', 'Anuj', 'anuj@gmail.com', 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.', '2018-11-21 11:06:22', 1),
-(2, '12', 'Test user', 'test@gmail.com', 'This is sample text for testing.', '2018-11-21 11:25:56', 1),
-(3, '7', 'ABC', 'abc@test.com', 'This is sample text for testing.', '2018-11-21 11:27:06', 1),
-(4, '12', 'nguyen le huu tho', 'songtho123@gmail.com', 'bài này hay', '2023-11-20 09:33:20', 1);
+(4, '12', 'nguyen le huu tho', 'songtho123@gmail.com', 'b?i n?y hay', '2023-11-20 09:33:20', 1),
+(5, '11', 'a', 'songtho123@gmail.com', 'hay', '2023-11-20 13:02:39', 0);
 
 -- --------------------------------------------------------
 
@@ -104,9 +102,9 @@ INSERT INTO `tblcomments` (`id`, `postId`, `name`, `email`, `comment`, `postingD
 
 CREATE TABLE `tblpages` (
   `id` int(11) NOT NULL,
-  `PageName` varchar(200) DEFAULT NULL,
-  `PageTitle` mediumtext DEFAULT NULL,
-  `Description` longtext DEFAULT NULL,
+  `PageName` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `PageTitle` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `Description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -116,8 +114,8 @@ CREATE TABLE `tblpages` (
 --
 
 INSERT INTO `tblpages` (`id`, `PageName`, `PageTitle`, `Description`, `PostingDate`, `UpdationDate`) VALUES
-(1, 'aboutus', 'About News Portal', '<font color=\"#7b8898\" face=\"Mercury SSm A, Mercury SSm B, Georgia, Times, Times New Roman, Microsoft YaHei New, Microsoft Yahei, å¾®è½¯é›…é»‘, å®‹ä½“, SimSun, STXihei, åŽæ–‡ç»†é»‘, serif\"><span style=\"font-size: 26px;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></font><br>', '2018-06-30 18:01:03', '2018-06-30 19:19:51'),
-(2, 'contactus', 'Contact Details', '<p><br></p><p><b>Address :&nbsp; </b>New Delhi India</p><p><b>Phone Number : </b>+91 -01234567890</p><p><b>Email -id : </b>phpgurukulofficial@gmail.com</p>', '2018-06-30 18:01:36', '2018-06-30 19:23:25');
+(1, 'aboutus', 'Th?ng tin', '<span id=\"docs-internal-guid-a6b59d73-7fff-1c5f-c69b-006c01f550f6\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size: 21pt; font-family: &quot;Times New Roman&quot;, serif; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\">Welcome to the newsportal sports news site, here we will update the latest, hottest news on issues surrounding daily sports news.</span></p><br><p dir=\"ltr\" style=\"line-height:1.542857142857143;margin-top:-1pt;margin-bottom:-1pt;\"><span style=\"font-size: 21pt; font-family: &quot;Times New Roman&quot;, serif; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\">If you encounter problems with the website or want to give us feedback, please send an email or call the phone number below:</span></p><div><span style=\"font-size: 21pt; font-family: &quot;Times New Roman&quot;, serif; font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; vertical-align: baseline; white-space-collapse: preserve;\"><br></span></div></span>', '2018-06-30 18:01:03', '2023-11-20 13:37:32'),
+(2, 'contactus', 'Contact us', '<p><b>Dia Chi:</b><span style=\"font-family: &quot;Times New Roman&quot;;\">&nbsp;Ho chi minh</span><br></p><p><font face=\"Times New Roman\"><b>Sdt:</b> 123456789</font></p><p><font face=\"Times New Roman\"><b>Email:</b> songtho123@gmaIl.com</font></p>', '2018-06-30 18:01:36', '2023-11-20 13:29:12');
 
 -- --------------------------------------------------------
 
@@ -127,15 +125,15 @@ INSERT INTO `tblpages` (`id`, `PageName`, `PageTitle`, `Description`, `PostingDa
 
 CREATE TABLE `tblposts` (
   `id` int(11) NOT NULL,
-  `PostTitle` longtext DEFAULT NULL,
+  `PostTitle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `CategoryId` int(11) DEFAULT NULL,
   `SubCategoryId` int(11) DEFAULT NULL,
   `PostDetails` longtext CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `Is_Active` int(1) DEFAULT NULL,
-  `PostUrl` mediumtext DEFAULT NULL,
-  `PostImage` varchar(255) DEFAULT NULL
+  `PostUrl` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `PostImage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -157,8 +155,8 @@ INSERT INTO `tblposts` (`id`, `PostTitle`, `CategoryId`, `SubCategoryId`, `PostD
 CREATE TABLE `tblsubcategory` (
   `SubCategoryId` int(11) NOT NULL,
   `CategoryId` int(11) DEFAULT NULL,
-  `Subcategory` varchar(255) DEFAULT NULL,
-  `SubCatDescription` mediumtext DEFAULT NULL,
+  `Subcategory` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `SubCatDescription` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `PostingDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL,
   `Is_Active` int(1) DEFAULT NULL
@@ -175,7 +173,21 @@ INSERT INTO `tblsubcategory` (`SubCategoryId`, `CategoryId`, `Subcategory`, `Sub
 (6, 5, 'Television', 'TeleVision', '2018-06-30 18:59:22', '0000-00-00 00:00:00', 1),
 (7, 6, 'National', 'National', '2018-06-30 19:04:29', '0000-00-00 00:00:00', 1),
 (8, 6, 'International', 'International', '2018-06-30 19:04:43', '0000-00-00 00:00:00', 1),
-(9, 7, 'India', 'India', '2018-06-30 19:08:42', '0000-00-00 00:00:00', 1);
+(9, 7, 'India', 'India', '2018-06-30 19:08:42', '0000-00-00 00:00:00', 1),
+(10, 13, 'B?ng ?? nam', 'B?ng ?? nam', '2023-11-20 13:46:22', NULL, 0),
+(11, 13, 'Bóng đá nam', 'Bóng đá nam', '2023-11-20 13:47:46', NULL, 1),
+(12, 13, 'Bóng đá nữ', 'Bóng đá nữ', '2023-11-20 13:48:00', NULL, 1),
+(13, 14, 'Bóng chuyền nam', 'Bóng chuyền nam', '2023-11-20 13:48:54', NULL, 1),
+(14, 14, 'Bóng chuyền nữ', 'Bóng chuyền nữ', '2023-11-20 13:49:01', NULL, 1),
+(15, 15, 'Nghiệp dư', 'Nghiệp dư', '2023-11-20 13:55:34', NULL, 1),
+(16, 15, 'Chuyên nghiệp', 'Chuyên nghiệp', '2023-11-20 13:55:51', NULL, 1),
+(17, 16, 'Cầu lông nam', 'Cầu lông nam', '2023-11-20 13:58:43', NULL, 1),
+(18, 16, 'Cầu lông nữ ', 'Cầu lông nữ ', '2023-11-20 13:58:51', NULL, 1),
+(19, 17, 'Bơi lội nam', 'Bơi lội nam', '2023-11-20 13:59:03', NULL, 1),
+(20, 17, 'Bơi lội nữ ', 'Bơi lội nữ ', '2023-11-20 13:59:21', NULL, 1),
+(21, 18, 'liên minh huyền thoại', 'liên minh huyền thoại', '2023-11-20 14:02:59', NULL, 1),
+(22, 18, 'PUBG', 'PUBG', '2023-11-20 14:07:05', NULL, 1),
+(23, 18, 'Counter-Strike 2', 'Counter-Strike 2', '2023-11-20 14:08:31', NULL, 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -225,19 +237,19 @@ ALTER TABLE `tblsubcategory`
 -- AUTO_INCREMENT cho bảng `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tblcategory`
 --
 ALTER TABLE `tblcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `tblcomments`
 --
 ALTER TABLE `tblcomments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `tblpages`
@@ -255,7 +267,7 @@ ALTER TABLE `tblposts`
 -- AUTO_INCREMENT cho bảng `tblsubcategory`
 --
 ALTER TABLE `tblsubcategory`
-  MODIFY `SubCategoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `SubCategoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
