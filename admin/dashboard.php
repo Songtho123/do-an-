@@ -15,7 +15,7 @@ else{
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
-        <title>News Portal | Dashboard</title>
+        <title>Dashboard</title>
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -129,36 +129,6 @@ $countposts=mysqli_num_rows($query);
                                     </div>
                                 </div>
                             </div></a>
-<a href="unapprove-comment.php">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-layers widget-one-icon"></i>
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Comment chưa duyệt</p>
-<?php $query=mysqli_query($con,"select * from tblcomments where Is_Active=1");
-$countsubcat=mysqli_num_rows($query);
-?>
-                                        <h2><?php echo htmlentities($countsubcat);?> <small></small></h2>
-                              
-                                    </div>
-                                </div>
-                            </div>
-</a>
-<a href="manage-comments.php">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="card-box widget-box-one">
-                                    <i class="mdi mdi-layers widget-one-icon"></i>
-                                    <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Comment đã duyệt</p>
-<?php $query=mysqli_query($con,"select * from tblcomments where Is_Active=0");
-$countsubcat=mysqli_num_rows($query);
-?>
-                                        <h2><?php echo htmlentities($countsubcat);?> <small></small></h2>
-                              
-                                    </div>
-                                </div>
-                            </div>
-</a>
 
 </div>
 

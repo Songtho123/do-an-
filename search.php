@@ -17,20 +17,14 @@ include('includes/config.php');
 
     <title>News Portal | Search  Page</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
   </head>
 
   <body>
-
-    <!-- Navigation -->
    <?php include('includes/header.php');?>
 
-    <!-- Page Content -->
     <div class="container">
 
 
@@ -104,30 +98,13 @@ while ($row=mysqli_fetch_array($query)) {
         <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
     </ul>
 <?php } ?>
-       
-
-      
-
-          <!-- Pagination -->
-
-
-
 
         </div>
-
-        <!-- Sidebar Widgets Column -->
       <?php include('includes/sidebar.php');?>
       </div>
-      <!-- /.row -->
 
     </div>
-    <!-- /.container -->
 
-    <!-- Footer -->
-      <?php include('includes/footer.php');?>
-
-
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

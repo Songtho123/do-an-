@@ -15,31 +15,19 @@ include('includes/config.php');
     <meta name="author" content="">
 
     <title>News Portal | Home Page</title>
-
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
 
   </head>
 
   <body>
 
-    <!-- Navigation -->
    <?php include('includes/header.php');?>
 
-    <!-- Page Content -->
     <div class="container">
-
-
      
       <div class="row" style="margin-top: 4%">
-
-        <!-- Blog Entries Column -->
         <div class="col-md-8">
-
-          <!-- Blog Post -->
 <?php 
      if (isset($_GET['pageno'])) {
             $pageno = $_GET['pageno'];
@@ -74,12 +62,6 @@ while ($row=mysqli_fetch_array($query)) {
             </div>
           </div>
 <?php } ?>
-       
-
-      
-
-          <!-- Pagination -->
-
 
     <ul class="pagination justify-content-center mb-4">
         <li class="page-item"><a href="?pageno=1"  class="page-link">First</a></li>
@@ -94,19 +76,9 @@ while ($row=mysqli_fetch_array($query)) {
 
         </div>
 
-        <!-- Sidebar Widgets Column -->
       <?php include('includes/sidebar.php');?>
       </div>
-      <!-- /.row -->
-
     </div>
-    <!-- /.container -->
-
-    <!-- Footer -->
-      <?php include('includes/footer.php');?>
-
-
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

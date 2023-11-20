@@ -6,17 +6,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about-us.php">About</a>
-            </li>
                  <li class="nav-item">
-              <a class="nav-link" href="index.php">News</a>
+              <a class="nav-link" href="index.php">Trang chủ</a>
             </li>
+            <?php $query=mysqli_query($con,"select id,CategoryName from tblcategory");
+            while($row=mysqli_fetch_array($query))
+            {
+            ?>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
+                    </li>
+            <?php } ?>
              <li class="nav-item">
               <a class="nav-link" href="contact-us.php">Contact us</a>
             </li>
-  
-  
           </ul>
         </div>
       </div>
