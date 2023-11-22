@@ -15,7 +15,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Search  Page</title>
+    <title>Cổng tin tức | Search  Page</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
@@ -81,7 +81,7 @@ while ($row=mysqli_fetch_array($query)) {
               <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Posted on <?php echo htmlentities($row['postingdate']);?>
+              Đăng lúc <?php echo htmlentities($row['postingdate']);?>
            
             </div>
           </div>

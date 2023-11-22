@@ -12,7 +12,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Contact us</title>
+    <title>Cổng tin tức | Liên hệ</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 

@@ -34,7 +34,7 @@ $error="Something went wrong . Please try again.";
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-        <title>Newsportal | About us Page</title>
+        <title>Cổng tin tức | About us Page</title>
 
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
 
@@ -88,7 +88,7 @@ $error="Something went wrong . Please try again.";
 
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
