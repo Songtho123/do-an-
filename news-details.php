@@ -62,7 +62,7 @@ while ($row=mysqli_fetch_array($query)) {
       
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-              <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> |
+              <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
                 <b>Sub Category : </b><?php echo htmlentities($row['subcategory']);?> <b> Posted on </b><?php echo htmlentities($row['postingdate']);?></p>
                 <hr />
 
