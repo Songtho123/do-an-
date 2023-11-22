@@ -56,7 +56,7 @@ $error="Something went wrong . Please try again.";
 
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Add Post</title>
+        <title>Cổng tin tức | Thêm tin tức</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
 
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -103,16 +103,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Post </h4>
+                                    <h4 class="page-title">Thêm tin tức </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Post</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add Post </a>
+                                            <a href="#">Thêm tin tức </a>
                                         </li>
                                         <li class="active">
-                                            Add Post
+                                            Thêm tin tức
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -124,7 +124,7 @@ function getSubCat(val) {
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
@@ -144,16 +144,16 @@ function getSubCat(val) {
                                     <div class="">
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
+<label for="exampleInputEmail1">Tiêu đề bài báo</label>
 <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
 </div>
 
 
 
 <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Category</label>
+<label for="exampleInputEmail1">Danh mục</label>
 <select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
-<option value="">Select Category </option>
+<option value="">Select Danh mục </option>
 <?php
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
@@ -166,7 +166,7 @@ while($result=mysqli_fetch_array($ret))
 </div>
     
 <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Sub Category</label>
+<label for="exampleInputEmail1">Danh mục nhỏ</label>
 <select class="form-control" name="subcategory" id="subcategory" required>
 
 </select> 

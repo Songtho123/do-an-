@@ -39,7 +39,7 @@ if($_GET['presid'])
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Manage Posts</title>
+        <title>Trang tin tức | Quản lý tin tức</title>
 
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
@@ -71,16 +71,16 @@ if($_GET['presid'])
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Trashed Posts </h4>
+                                    <h4 class="page-title">Tin tức nháp </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Posts</a>
+                                            <a href="#">Bài báo</a>
                                         </li>
                                         <li class="active">
-                                          Trashed Posts 
+                                          Bài báo nháp
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -112,10 +112,10 @@ if($_GET['presid'])
 <thead>
 <tr>
                                            
-<th>Title</th>
-<th>Category</th>
-<th>Subcategory</th>
-<th>Action</th>
+<th>Tiêu đề</th>
+<th>Danh mục</th>
+<th>Danh mục con</th>
+<th>Hành động</th>
 </tr>
 </thead>
 <tbody>
@@ -128,7 +128,7 @@ if($rowcount==0)
 ?>
 <tr>
 
-<td colspan="4" align="center"><h3 style="color:red">No record found</h3></td>
+<td colspan="4" align="center"><h3 style="color:red">Không lưu lại dữ liệu</h3></td>
 <tr>
 <?php 
 } else {

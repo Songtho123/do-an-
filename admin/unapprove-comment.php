@@ -81,7 +81,7 @@ if($_GET['action']=='del' && $_GET['rid'])
  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 

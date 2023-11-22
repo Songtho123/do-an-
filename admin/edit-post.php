@@ -37,7 +37,7 @@ $error="Something went wrong . Please try again.";
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Add Post</title>
+        <title>Cổng tin tức | Thêm bài báo</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../plugins/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
@@ -82,10 +82,10 @@ function getSubCat(val) {
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#"> Posts </a>
+                                            <a href="#"> Bài báo </a>
                                         </li>
                                         <li class="active">
-                                            Add Post
+                                            Thêm bài báo
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -97,7 +97,7 @@ function getSubCat(val) {
 <div class="col-sm-6">   
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 <?php if($error){ ?>
@@ -121,14 +121,14 @@ while($row=mysqli_fetch_array($query))
                                     <div class="">
                                         <form name="addpost" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
+<label for="exampleInputEmail1">Tiêu đề bài báo</label>
 <input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['title']);?>" name="posttitle" placeholder="Enter title" required>
 </div>
 
 
 
 <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Category</label>
+<label for="exampleInputEmail1">Danh mục</label>
 <select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
 <option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['category']);?></option>
 <?php
@@ -143,7 +143,7 @@ while($result=mysqli_fetch_array($ret))
 </div>
     
 <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Sub Category</label>
+<label for="exampleInputEmail1">Danh mục nhỏ</label>
 <select class="form-control" name="subcategory" id="subcategory" required>
 <option value="<?php echo htmlentities($row['subcatid']);?>"><?php echo htmlentities($row['subcategory']);?></option>
 </select> 
@@ -153,7 +153,7 @@ while($result=mysqli_fetch_array($ret))
      <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Chi tiết bài báo</b></h4>
 <textarea class="summernote" name="postdescription" required><?php echo htmlentities($row['PostDetails']);?></textarea>
 </div>
 </div>
@@ -162,7 +162,7 @@ while($result=mysqli_fetch_array($ret))
  <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Image</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Hình ảnh bài báo</b></h4>
 <img src="postimages/<?php echo htmlentities($row['PostImage']);?>" width="300"/>
 <br />
 <a href="change-image.php?pid=<?php echo htmlentities($row['postid']);?>">Update Image</a>

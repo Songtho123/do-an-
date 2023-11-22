@@ -31,7 +31,7 @@ $error="Something went wrong . Please try again.";
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Manage Posts</title>
+        <title>Cổng tin tức | Quản lý bài báo</title>
 
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
@@ -61,16 +61,16 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Manage Posts </h4>
+                                    <h4 class="page-title">Quản lý bài báo </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Posts</a>
+                                            <a href="#">Bài báo</a>
                                         </li>
                                         <li class="active">
-                                            Manage Post  
+                                            Quản lý bài báo 
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -87,10 +87,10 @@ $error="Something went wrong . Please try again.";
 <thead>
 <tr>
                                            
-<th>Title</th>
-<th>Category</th>
-<th>Subcategory</th>
-<th>Action</th>
+<th>Tựa đề</th>
+<th>Danh mục</th>
+<th>Danh mục con</th>
+<th>Hành động</th>
 </tr>
 </thead>
 <tbody>
@@ -103,7 +103,7 @@ if($rowcount==0)
 ?>
 <tr>
 
-<td colspan="4" align="center"><h3 style="color:red">No record found</h3></td>
+<td colspan="4" align="center"><h3 style="color:red">Không dữ liệu được tìm thấy</h3></td>
 <tr>
 <?php 
 } else {
