@@ -29,7 +29,7 @@ while($row=mysqli_fetch_array($query))
 ?>
 
                     <li>
-                      <a href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
+                      <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
                     </li>
 <?php } ?>
                   </ul>
@@ -51,7 +51,7 @@ while ($row=mysqli_fetch_array($query)) {
 ?>
 
   <li>
-                      <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
+                      <a style="color: black;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
                     </li>
             <?php } ?>
           </ul>
