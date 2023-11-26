@@ -32,9 +32,9 @@ echo "<script>alert('User not registered with us');</script>";
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="News Portal.">
+        <meta name="description" content="Cổng tin tức.">
         <meta name="author" content="PHPGurukul">
-        <title>News Portal | Admin Panel</title>
+        <title>Cổng tin tức | Admin Panel</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />

@@ -46,7 +46,7 @@ $error="Old Password not match !!";
 <html lang="en">
     <head>
 
-        <title>Newsportal | Add Category</title>
+        <title>Cổng tin tức | Thêm Danh mục</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -107,14 +107,14 @@ return true;
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Chnage Password</h4>
+                                    <h4 class="page-title">Đổi mật khẩu</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                     
                                         <li class="active">
-                                         Change Password
+                                        Đổi mật khẩu
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -126,7 +126,7 @@ return true;
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
-                                    <h4 class="m-t-0 header-title"><b>Change Password </b></h4>
+                                    <h4 class="m-t-0 header-title"><b>Đổi mật khẩu </b></h4>
                                     <hr />
                         		
 
@@ -135,7 +135,7 @@ return true;
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
@@ -153,7 +153,7 @@ return true;
 <form class="form-horizontal" name="chngpwd" method="post" onSubmit="return valid();">
 
 <div class="form-group">
-<label class="col-md-4 control-label">Current Password</label>
+<label class="col-md-4 control-label">Mật khẩu hiện tại</label>
 <div class="col-md-8">
 <input type="text" class="form-control" value="" name="password" required>
 </div>
@@ -161,7 +161,7 @@ return true;
 	                                     
 
 <div class="form-group">
-<label class="col-md-4 control-label">New Password</label>
+<label class="col-md-4 control-label">Mật khẩu mới</label>
 <div class="col-md-8">
 <input type="text" class="form-control" value="" name="newpassword" required>
 </div>
@@ -169,7 +169,7 @@ return true;
 
 
 <div class="form-group">
-<label class="col-md-4 control-label">Confirm Password</label>
+<label class="col-md-4 control-label">Xác nhận lại mật khẩu</label>
 <div class="col-md-8">
 <input type="text" class="form-control" value="" name="confirmpassword" required>
 </div>
@@ -180,7 +180,7 @@ return true;
 <div class="col-md-8">
                                                   
 <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submit">
-                                                    Submit
+                                                    Gửi
                                                 </button>
                                                     </div>
                                                 </div>

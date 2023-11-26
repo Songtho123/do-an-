@@ -16,7 +16,7 @@ $subcatdescription=$_POST['sucatdescription'];
 $query=mysqli_query($con,"update tblsubcategory set CategoryId='$categoryid',Subcategory='$subcatname',SubCatDescription='$subcatdescription' where SubCategoryId='$subcatid'");
 if($query)
 {
-$msg="Sub-Category created ";
+$msg="Sub-Danh mục created ";
 }
 else{
 $error="Something went wrong . Please try again.";    
@@ -31,7 +31,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>Newsportal | Edit Sub Category</title>
+        <title>Cổng tin tức | Edit danh mục nhỏ</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -61,16 +61,16 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Sub-Category</h4>
+                                    <h4 class="page-title">Thêm danh mục nhỏ</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Category </a>
+                                            <a href="#">Danh mục </a>
                                         </li>
                                         <li class="active">
-                                            Add Sub-Category
+                                            Thêm danh mục nhỏ
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -80,7 +80,7 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
-                                    <h4 class="m-t-0 header-title"><b>Add Sub-Category </b></h4>
+                                    <h4 class="m-t-0 header-title"><b>Thêm danh mục nhỏ </b></h4>
                                     <hr />
                         		
 
@@ -89,7 +89,7 @@ $error="Something went wrong . Please try again.";
 <div class="col-sm-6">   
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoài thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
@@ -117,7 +117,7 @@ while($row=mysqli_fetch_array($query))
                         				<div class="col-md-6">
                         					<form class="form-horizontal" name="category" method="post">
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Category</label>
+	                                                <label class="col-md-2 control-label">Danh mục</label>
 	                                                <div class="col-md-10">
 	                                                  <select class="form-control" name="category" required>
                                                    <option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['catname']);?></option>
@@ -133,14 +133,14 @@ while($result=mysqli_fetch_array($ret))
 	                                                </div>
 	                                            </div>                 
     <div class="form-group">
-                                                    <label class="col-md-2 control-label">Sub-Category</label>
+                                                    <label class="col-md-2 control-label">Danh mục nhỏ</label>
                                                     <div class="col-md-10">
                                                         <input type="text" class="form-control" value="<?php echo htmlentities($row['subcatname']);?>" name="subcategory" required>
                                                     </div>
                                                 </div>
 
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Sub-Category Description</label>
+	                                                <label class="col-md-2 control-label">Mô tả của danh mục nhỏ</label>
 	                                                <div class="col-md-10">
 	                                   <textarea class="form-control" rows="5" name="sucatdescription" required><?php echo htmlentities($row['SubCatDescription']);?></textarea>
 	                                                </div>
@@ -153,7 +153,7 @@ while($result=mysqli_fetch_array($ret))
                                                     <div class="col-md-10">
                                                   
                                                 <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submitsubcat">
-                                                    Submit
+                                                    Đăng
                                                 </button>
                                                     </div>
                                                 </div>

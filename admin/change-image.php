@@ -49,7 +49,7 @@ $error="Something went wrong . Please try again.";
 
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Add Post</title>
+        <title>Cổng tin tức | Thêm tin tức</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
 
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -93,19 +93,19 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Update Image </h4>
+                                    <h4 class="page-title">Cập nhập hình ảnh </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#"> Posts </a>
+                                            <a href="#"> Bài báo </a>
                                         </li>
                                            <li>
-                                            <a href="#"> Edit Posts </a>
+                                            <a href="#"> Chỉnh sửa bài báo </a>
                                         </li>
                                         <li class="active">
-                                           Update Image
+                                           Cập nhập hình ảnh
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -117,7 +117,7 @@ function getSubCat(val) {
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
@@ -142,7 +142,7 @@ while($row=mysqli_fetch_array($query))
                                     <div class="">
                                         <form name="addpost" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
+<label for="exampleInputEmail1">Tiêu đề bài báo</label>
 <input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['PostTitle']);?>" name="posttitle"  readonly>
 </div>
 
@@ -151,7 +151,7 @@ while($row=mysqli_fetch_array($query))
  <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Current Post Image</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Hình ảnh hiện tại bài báo</b></h4>
 <img src="postimages/<?php echo htmlentities($row['PostImage']);?>" width="300"/>
 <br />
 
@@ -163,13 +163,13 @@ while($row=mysqli_fetch_array($query))
 <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>New Feature Image</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Ảnh đại diện mới</b></h4>
 <input type="file" class="form-control" id="postimage" name="postimage"  required>
 </div>
 </div>
 </div>
 
-<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update </button>
+<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Cập nhập </button>
 </form>
                                     </div>
                                 </div> 

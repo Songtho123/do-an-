@@ -38,7 +38,7 @@ endif;
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>News Portal | Home Page</title>
+    <title>Cổng tin tức | Trang chủ</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
 
@@ -62,8 +62,8 @@ while ($row=mysqli_fetch_array($query)) {
       
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-              <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> |
-                <b>Sub Category : </b><?php echo htmlentities($row['subcategory']);?> <b> Posted on </b><?php echo htmlentities($row['postingdate']);?></p>
+              <p><b>Danh mục : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
+                <b>Danh mục nhỏ : </b><?php echo htmlentities($row['subcategory']);?> <b> Đăng lúc </b><?php echo htmlentities($row['postingdate']);?></p>
                 <hr />
 
  <img class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
@@ -87,7 +87,7 @@ $pt=$row['postdetails'];
  <div class="row" style="margin-top: -8%">
    <div class="col-md-8">
 <div class="card my-4">
-            <h5 class="card-header">Leave a Comment:</h5>
+            <h5 class="card-header">Để lại bình luận:</h5>
             <div class="card-body">
               <form name="Comment" method="post">
       <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
@@ -103,7 +103,7 @@ $pt=$row['postdetails'];
                 <div class="form-group">
                   <textarea class="form-control" name="comment" rows="3" placeholder="Comment" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary" name="submit">Gửi</button>
               </form>
             </div>
           </div>
@@ -117,7 +117,7 @@ while ($row=mysqli_fetch_array($query)) {
             <img class="d-flex mr-3 rounded-circle" src="images/usericon.png" alt="">
             <div class="media-body">
               <h5 class="mt-0"><?php echo htmlentities($row['name']);?> <br />
-                  <span style="font-size:11px;"><b>at</b> <?php echo htmlentities($row['postingDate']);?></span>
+                  <span style="font-size:11px;"><b>tại</b> <?php echo htmlentities($row['postingDate']);?></span>
             </h5>
            
              <?php echo htmlentities($row['comment']);?>            </div>

@@ -33,7 +33,7 @@ $error="Something went wrong . Please try again.";
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-        <title>Newsportal | Contact us Page</title>
+        <title>Cổng tin tức | Trang liên hệ</title>
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
         <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../plugins/jquery.filer/css/jquery.filer.css" rel="stylesheet" />
@@ -65,14 +65,14 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Contact us Page  </h4>
+                                    <h4 class="page-title">Trang liên hệ  </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Pages</a>
+                                            <a href="#">Trang</a>
                                         </li>
                                      
                                         <li class="active">
-                                         Contact us
+                                         Liên hệ
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -84,7 +84,7 @@ $error="Something went wrong . Please try again.";
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
@@ -110,21 +110,21 @@ while($row=mysqli_fetch_array($query))
                                     <div class="">
                                         <form name="aboutus" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Page Title</label>
+<label for="exampleInputEmail1">Tiêu đề trang</label>
 <input type="text" class="form-control" id="pagetitle" name="pagetitle" value="<?php echo htmlentities($row['PageTitle'])?>"  required>
 </div>
 
      <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Page Details</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Chi tiết trang</b></h4>
 <textarea class="summernote" name="pagedescription"  required><?php echo htmlentities($row['Description'])?></textarea>
 </div>
 </div>
 </div>
 <?php } ?>
 
-<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update and Post</button>
+<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Cập nhập và đăng</button>
 
                                         </form>
                                     </div>
