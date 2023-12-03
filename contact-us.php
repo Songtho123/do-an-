@@ -17,6 +17,7 @@ include('includes/config.php');
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
   </head>
 
@@ -68,6 +69,7 @@ while($row=mysqli_fetch_array($query))
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <?php include ('includes/footer.php'); ?>
 
   </body>
 
