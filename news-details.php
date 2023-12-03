@@ -83,6 +83,17 @@ $pt=$row['postdetails'];
         </div>
 
       <?php include('includes/sidebar.php');?>
+      <style>
+        /* CSS for the card header */
+        .sticky-300 {
+            position: sticky;
+            top: 300px;
+        }
+        .sticky-700 {
+            position: sticky;
+            top: 700px;
+        }
+      </style>
       </div>
 
  <div class="row" style="margin-top: -8%">
@@ -132,6 +143,7 @@ while ($row=mysqli_fetch_array($query)) {
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <?php include ('includes/footer.php'); ?>
+    <?php include ('includes/scroll_to_top.php'); ?>
 
   </body>
 
