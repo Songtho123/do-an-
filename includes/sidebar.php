@@ -17,7 +17,7 @@
           </div>
 
           <!-- Categories Widget -->
-          <div class="card my-4">
+          <div class="card my-4 sticky-300">
             <h5 class="card-header">Categories</h5>
             <div class="card-body">
               <div class="row">
@@ -40,7 +40,7 @@ while($row=mysqli_fetch_array($query))
           </div>
 
           <!-- Side Widget -->
-          <div class="card my-4">
+          <div class="card my-4 sticky-700">
             <h5 class="card-header">Recent News</h5>
             <div class="card-body">
                       <ul class="mb-0">
