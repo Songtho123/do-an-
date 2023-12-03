@@ -75,6 +75,17 @@ while ($row=mysqli_fetch_array($query)) {
         </div>
 
       <?php include('includes/sidebar.php');?>
+      <style>
+        /* CSS for the card header */
+        .sticky-300 {
+            position: sticky;
+            top: 300px;
+        }
+        .sticky-700 {
+            position: sticky;
+            top: 700px;
+        }
+      </style>
       </div>
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
