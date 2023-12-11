@@ -83,17 +83,6 @@ $pt=$row['postdetails'];
         </div>
 
       <?php include('includes/sidebar.php');?>
-      <style>
-        /* CSS for the card header */
-        .sticky-300 {
-            position: sticky;
-            top: 300px;
-        }
-        .sticky-700 {
-            position: sticky;
-            top: 700px;
-        }
-      </style>
       </div>
 
  <div class="row" style="margin-top: -8%">
