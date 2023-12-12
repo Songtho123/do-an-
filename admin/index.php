@@ -16,12 +16,12 @@ if (password_verify($password, $hashpassword)) {
 $_SESSION['login']=$_POST['username'];
     echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
   } else {
-echo "<script>alert('Wrong Password');</script>";
+echo "<script>alert('THỬ LẠI BẠN EIIIII!!!!');</script>";
  
   }
 }
 else{
-echo "<script>alert('User not registered with us');</script>";
+echo "<script>alert('Tài khoản chưa đăng ký');</script>";
   }
  
 }

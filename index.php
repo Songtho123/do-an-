@@ -50,13 +50,9 @@ while ($row=mysqli_fetch_array($query)) {
             <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" style="height: 375px;">
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-                 <p><b>Danh mục : </b> <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> </p>
+                 <p ><b>Danh mục : </b> <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['cid'])?>"><?php echo htmlentities($row['category']);?></a> </p>
        
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <div class="card-footer text-muted">
-              Đăng lúc <?php echo htmlentities($row['postingdate']);?>
-           
+              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Đọc ngay &rarr;</a>
             </div>
           </div>
 <?php } ?>
@@ -90,7 +86,6 @@ while ($row=mysqli_fetch_array($query)) {
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <?php include ('includes/footer.php'); ?>
     <?php include ('includes/scroll_to_top.php'); ?>
  
 </head>

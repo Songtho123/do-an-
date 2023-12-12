@@ -29,16 +29,42 @@ if($num>0)
 if (password_verify($password, $dbpassword)) {
 
  $con=mysqli_query($con,"update tbladmin set AdminPassword='$newhashedpass', updationDate='$currentTime' where AdminUserName='$adminid'");
-$msg="Password Changed Successfully !!";
+$msg="Mật khẩu đã được thay đổi thành công!!";
 }
 }
 else
 {
-$error="Old Password not match !!";
+$error="Mật khẩu cũ không khớp!!";
 }
 }
+// if(isset($_POST['addsubmit']))
+// {
+// $AdminUserName=$_POST[AdminUserName]
+// $AdminPassword=$_POST['AdminPassword'];
+// $options = ['cost' => 12];
+// $hashedpass=AdminPassword_hash($AdminPassword, PASSWORD_BCRYPT, $options);
+// $adminid=$_SESSION['login'];
 
 
+// date_default_timezone_set('Asia/Ho_Chi_Minh');
+// $currentTime = date( 'd-m-Y h:i:s A', time () );
+// $sql=mysqli_query($con,"SELECT AdminPassword FROM  tbladmin where AdminUserName='$adminid' || AdminEmailId='$adminid'");
+// $num=mysqli_fetch_array($sql);
+// if($num>0)
+// {
+//  $dbpassword=$num['AdminPassword'];
+
+// if (password_verify($AdminEmailId, $dbpassword)) {
+
+//  $con=mysqli_query($con,"update tbladmin set AdminPassword='$newhashedpass', updationDate='$currentTime' where AdminUserName='$adminid'");
+// $msg="Mật khẩu đã được thay đổi thành công!!";
+// }
+// }
+// else
+// {
+// $error="Mật khẩu cũ không khớp!!";
+// }
+// }
 ?>
 
 
@@ -63,25 +89,25 @@ function valid()
 {
 if(document.chngpwd.password.value=="")
 {
-alert("Current Password Filed is Empty !!");
+alert("Mật khẩu hiện tại được lưu!!");
 document.chngpwd.password.focus();
 return false;
 }
 else if(document.chngpwd.newpassword.value=="")
 {
-alert("New Password Filed is Empty !!");
+alert("Mật khẩu mới được gửi!!");
 document.chngpwd.newpassword.focus();
 return false;
 }
 else if(document.chngpwd.confirmpassword.value=="")
 {
-alert("Confirm Password Filed is Empty !!");
+alert("Xác nhận mật khẩu đã điền!!");
 document.chngpwd.confirmpassword.focus();
 return false;
 }
 else if(document.chngpwd.newpassword.value!= document.chngpwd.confirmpassword.value)
 {
-alert("Password and Confirm Password Field do not match  !!");
+alert("Mật khẩu và Xác nhận mật khẩu không khớp !!");
 document.chngpwd.confirmpassword.focus();
 return false;
 }
@@ -141,7 +167,7 @@ return true;
 
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+<strong>THẤT BẠI!!!! VUI LÒNG THỬ LẠI :>>>></strong> <?php echo htmlentities($error);?></div>
 <?php } ?>
 
 
@@ -180,7 +206,7 @@ return true;
 <div class="col-md-8">
                                                   
 <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submit">
-                                                    Gửi
+                                                    Xác Nhận
                                                 </button>
                                                     </div>
                                                 </div>
@@ -191,8 +217,101 @@ return true;
                             </div>
                         </div>
                     </div> 
+
+                </div> 
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+							<div class="col-xs-12">
+								<div class="page-title-box">
+                                    <h4 class="page-title">Đăng ký tài khoản</h4>
+                                    <ol class="breadcrumb p-0 m-0">
+                                        <li>
+                                            <a href="#">Admin</a>
+                                        </li>
+                                    
+                                        <li class="active">
+                                        Đăng ký tài khoản
+                                        </li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+							</div>
+						</div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <h4 class="m-t-0 header-title"><b>Tạo tài khoản mới</b></h4>
+                                    <hr />
+                        		
+
+
+                            <div class="row">
+                            <div class="col-sm-6">  
+                            <?php if($msg){ ?>
+                            <div class="alert alert-success" role="alert">
+                            <strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
+                            </div>
+                            <?php } ?>
+
+                            <?php if($error){ ?>
+                            <div class="alert alert-danger" role="alert">
+                            <strong>VUI LÒNG THỬ LẠI :>>>></strong> <?php echo htmlentities($error);?></div>
+                            <?php } ?>
+
+
+                            </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="col-md-10">
+                            <form class="form-horizontal" name="new" method="post" onSubmit="return valid();">
+
+                            <div class="form-group">
+                            <label class="col-md-4 control-label">Tên thành viên</label>
+                            <div class="col-md-8">
+                            <input type="text" class="form-control" value="" name="AdminUserName" required>
+                            </div>
+                            </div>
+                                                                    
+
+                            <div class="form-group">
+                            <label class="col-md-4 control-label">Email</label>
+                            <div class="col-md-8">
+                            <input type="text" class="form-control" value="" name="AdminEmailId" required>
+                            </div>
+                            </div>
+
+
+                            <div class="form-group">
+                            <label class="col-md-4 control-label">Mật khẩu</label>
+                            <div class="col-md-8">
+                            <input type="text" class="form-control" value="" name="AdminPassword" required>
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                            <label class="col-md-4 control-label">&nbsp;</label>
+                            <div class="col-md-8">
+                                                                            
+                            <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="addsubmit">
+                                                Đăng ký
+                                                </button>
+                                                    </div>
+                                                </div>
+	                                        </form>
+                        				</div>
+                        			</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
                 </div> 
             </div>
+            
         </div>
         <script>
             var resizefunc = [];
