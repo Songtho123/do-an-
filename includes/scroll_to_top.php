@@ -13,9 +13,18 @@
             background-color: #007bff;
             color: #fff;
             border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
+            border-radius: 50%; /* Make it circular */
+            padding: 15px;
             cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+        }
+
+        /* Style the arrow */
+        #scrollToTopBtn::before {
+            content: '\2191'; /* Unicode arrow-up character */
+            font-size: 20px;
+            line-height: 20px;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -23,7 +32,7 @@
 
     <!-- Your page content goes here -->
 
-    <button id="scrollToTopBtn" onclick="scrollToTop()">Scroll to Top</button>
+    <button id="scrollToTopBtn" onclick="scrollToTop()"></button>
 
     <script>
         // Function to scroll to the top of the page
