@@ -31,7 +31,13 @@
                                      <li><a href="trash-posts.php">Đã xóa</a></li>
                                 </ul>
                             </li>  
-                     
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> User </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="user.php">Người đọc</a></li>
+                                </ul>
+                            </li>
+   <li class="has_sub">
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Thông tin liên hệ </span> <span class="menu-arrow"></span></a>

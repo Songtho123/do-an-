@@ -12,7 +12,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cổng tin tức | Liên hệ</title>
+    <title>News Portal | Contact us</title>
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@ include('includes/config.php');
     <div class="container">
 <?php 
 $pagetype='aboutus';
-$query=mysqli_query($con,"select PageTitle,Description from tblpages where PageName='$pagetype'");
+$query=mysqli_query($con,"select PageTitle,Description from tblaboutus where PageName='$pagetype'");
 while($row=mysqli_fetch_array($query))
 {
 
@@ -48,7 +48,7 @@ while($row=mysqli_fetch_array($query))
 
 <?php 
 $pagetype='contactus';
-$query=mysqli_query($con,"select PageTitle,Description from tblpages where PageName='$pagetype'");
+$query=mysqli_query($con,"select PageTitle,Description from tblaboutus where PageName='$pagetype'");
 while($row=mysqli_fetch_array($query))
 {
 
@@ -69,7 +69,6 @@ while($row=mysqli_fetch_array($query))
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <?php include ('includes/footer.php'); ?>
 
   </body>
 

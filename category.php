@@ -15,8 +15,7 @@ include('includes/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cổng tin tức | Trang danh mục</title>
-
+    <title>News Portal | Môn thể thao</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
 
@@ -66,10 +65,8 @@ while ($row=mysqli_fetch_array($query)) {
        <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-           
               <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Đọc ngay &rarr;</a>
             </div>
-
           </div>
 <?php } ?>
 
