@@ -18,9 +18,9 @@
                     <a class="nav-link" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
                 </li>
                 <?php } ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="contact-us.php">Contact us</a>
-                </li>
+                </li> -->
                
             </ul>
         </div>
