@@ -34,7 +34,9 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> User </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="user.php">Người đọc</a></li>
+                                <li><a href="add-user.php">Thêm Cộng Tác Viên</a></li>
+                                <li><a href="user.php">Danh sách Cộng tác viên </a></li>
+                                    
                                 </ul>
                             </li>
    <li class="has_sub">

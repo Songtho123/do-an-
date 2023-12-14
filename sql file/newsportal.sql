@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 14, 2023 lúc 11:49 AM
+-- Thời gian đã tạo: Th12 14, 2023 lúc 04:55 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -105,20 +105,45 @@ CREATE TABLE `tblcomments` (
   `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `comment` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
-  `status` int(1) DEFAULT NULL,
-  `iduser` int(11) NOT NULL
+  `status` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tblcomments`
 --
 
-INSERT INTO `tblcomments` (`id`, `postId`, `name`, `email`, `comment`, `postingDate`, `status`, `iduser`) VALUES
-(4, '12', 'nguyen le huu tho', 'songtho123@gmail.com', 'b?i n?y hay', '2023-11-20 09:33:20', 1, 0),
-(5, '11', 'a', 'songtho123@gmail.com', 'hay', '2023-11-20 13:02:39', 0, 0),
-(6, '14', 'Thọ', 'songtho123@gmail.com', '123', '2023-12-03 14:31:01', 1, 0),
-(8, '22', 'nguyen van b', 'nguyenvanb@gmail.com', 'cần cập nhật nhiều thông tin hơn nữa', '2023-12-13 15:44:55', 1, 0),
-(9, '22', 'nguyen van b', 'nguyenvanb@gmail.com', 'cập nhật thêm mức lương của các cầu thủ đi admin', '2023-12-13 15:46:59', 1, 0);
+INSERT INTO `tblcomments` (`id`, `postId`, `name`, `email`, `comment`, `postingDate`, `status`) VALUES
+(4, '12', 'nguyen le huu tho', 'songtho123@gmail.com', 'b?i n?y hay', '2023-11-20 09:33:20', 1),
+(5, '11', 'a', 'songtho123@gmail.com', 'hay', '2023-11-20 13:02:39', 0),
+(6, '14', 'Thọ', 'songtho123@gmail.com', '123', '2023-12-03 14:31:01', 1),
+(8, '22', 'nguyen van b', 'nguyenvanb@gmail.com', 'cần cập nhật nhiều thông tin hơn nữa', '2023-12-13 15:44:55', 1),
+(9, '22', 'nguyen van b', 'nguyenvanb@gmail.com', 'cập nhật thêm mức lương của các cầu thủ đi admin', '2023-12-13 15:46:59', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tblctv`
+--
+
+CREATE TABLE `tblctv` (
+  `idctv` int(11) NOT NULL,
+  `cccd` varchar(20) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `phone` int(13) DEFAULT NULL,
+  `Birthday` date NOT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `CreationDate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tblctv`
+--
+
+INSERT INTO `tblctv` (`idctv`, `cccd`, `name`, `email`, `password`, `phone`, `Birthday`, `city`, `CreationDate`) VALUES
+(1, '12222222222', 'nguyen le huu tho', 'songtho123@gmail.com', '123', 919855226, '2001-12-12', 'tp hồ chí minh', '2023-12-14 15:54:41'),
+(2, '12222222222', 'nguyen le huu tho', '123', '123', 919855226, '2001-12-12', 'tp hồ chí minh', '2023-12-14 15:55:02');
 
 -- --------------------------------------------------------
 
@@ -220,6 +245,12 @@ ALTER TABLE `tblcomments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `tblctv`
+--
+ALTER TABLE `tblctv`
+  ADD PRIMARY KEY (`idctv`);
+
+--
 -- Chỉ mục cho bảng `tblposts`
 --
 ALTER TABLE `tblposts`
@@ -249,7 +280,7 @@ ALTER TABLE `tblaboutus`
 -- AUTO_INCREMENT cho bảng `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `tblcategory`
@@ -262,6 +293,12 @@ ALTER TABLE `tblcategory`
 --
 ALTER TABLE `tblcomments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT cho bảng `tblctv`
+--
+ALTER TABLE `tblctv`
+  MODIFY `idctv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tblposts`
