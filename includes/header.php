@@ -21,18 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact-us.php">Contact us</a>
                 </li>
-                <!-- Add the login/register/user-info dropdown menu with user icon here -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i> Tài khoản
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="login.php">Đăng nhập</a>
-                        <a class="dropdown-item" href="register.php">Đăng ký</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="user_info.php">Thông tin</a>
-                    </div>
-                </li>
+               
             </ul>
         </div>
     </div>

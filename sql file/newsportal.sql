@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 14, 2023 lúc 10:06 AM
+-- Thời gian đã tạo: Th12 14, 2023 lúc 11:49 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `newsportal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tblaboutus`
+--
+
+CREATE TABLE `tblaboutus` (
+  `id` int(11) NOT NULL,
+  `PageName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `PageTitle` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `Description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `PostingDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tblaboutus`
+--
+
+INSERT INTO `tblaboutus` (`id`, `PageName`, `PageTitle`, `Description`, `PostingDate`, `UpdationDate`) VALUES
+(1, 'aboutus', 'Thông tin', 'Thông báo mới', '2023-11-22 16:48:57', '2023-11-24 16:48:57'),
+(2, 'Contactus', 'Thông tin liên hệ', 'Địa chỉ:\r\nEmail\r\nSĐT', '2023-11-25 16:50:32', '2023-12-13 16:50:32');
 
 -- --------------------------------------------------------
 
@@ -173,6 +196,12 @@ INSERT INTO `tblsubcategory` (`SubCategoryId`, `CategoryId`, `Subcategory`, `Sub
 --
 
 --
+-- Chỉ mục cho bảng `tblaboutus`
+--
+ALTER TABLE `tblaboutus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `tbladmin`
 --
 ALTER TABLE `tbladmin`
@@ -209,6 +238,12 @@ ALTER TABLE `tblsubcategory`
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `tblaboutus`
+--
+ALTER TABLE `tblaboutus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tbladmin`
