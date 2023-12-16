@@ -25,7 +25,7 @@ include('includes/config.php');
   
         <?php include('includes/header.php');?>
         <div class="container">
-        <div class="row" style="margin-top: 4%">
+        <div class="row" style="margin-top: 0.5%">
         <div class="col-md-8">
         
             <?php 
