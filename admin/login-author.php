@@ -3,28 +3,26 @@
 
 include('includes/config.php');
 
-if(isset($_POST['login']))
-  {
-     $uname=$_POST['username'];
-    $password=$_POST['password'];
-$sql =mysqli_query($con,"SELECT AdminUserName,AdminEmailId,AdminPassword FROM tbladmin WHERE (AdminUserName='$uname' || AdminEmailId='$uname')");
- $num=mysqli_fetch_array($sql);
-if($num>0)
-{
-$hashpassword=$num['AdminPassword']; 
-if (password_verify($password, $hashpassword)) {
-$_SESSION['login']=$_POST['username'];
-    echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-  } else {
-echo "<script>alert('THỬ LẠI BẠN EIIIII!!!!');</script>";
- 
-  }
-}
-else{
-echo "<script>alert('Tài khoản chưa đăng ký');</script>";
-  }
- 
-}
+if (isset($_POST['login1'])){
+    $uname=$_POST['username'];
+    $ctvpassword=$_POST['ctvpassword'];
+    $query=mysqli_query($con, "select * from tblctv where cccd='$uname' AND ctvpassword='$ctvpassword' ");
+    if ($query) {
+        if (mysqli_num_rows($query)>0) {
+            $num = mysqli_fetch_array($query);
+            $_SESSION['username']=$uname;
+            $_SESSION['role'] = $num['0'];
+            header('location:user-post.php');
+        }else{
+            echo "<script> alert('Vui lòng kiểm tra lại tài khoản, mật khấu')</script>";
+    
+        }
+    }
+    
+    
+    
+    }
+  
 ?>
 
 <!DOCTYPE html>
@@ -75,13 +73,13 @@ echo "<script>alert('Tài khoản chưa đăng ký');</script>";
 
                                         <div class="form-group ">
                                             <div class="col-xs-12">
-                                                <input class="form-control" type="text" required="" name="username" placeholder="Username or email" autocomplete="off">
+                                                <input class="form-control" type="text" required="" name="username" placeholder="cccd or sđt" autocomplete="off">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <input class="form-control" type="password" name="password" required="" placeholder="Password" autocomplete="off">
+                                                <input class="form-control" type="password" name="ctvpassword" required="" placeholder="Password" >
                                             </div>
                                         </div>
 
@@ -89,7 +87,7 @@ echo "<script>alert('Tài khoản chưa đăng ký');</script>";
                      
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-xs-12">
-                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" name="login">Log In</button>
+                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" name="login1">Log In</button>
                                             </div>
                                         </div>
 

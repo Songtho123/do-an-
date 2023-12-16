@@ -1,3 +1,31 @@
+<?php
+ session_start();
+
+include('includes/config.php');
+
+if(isset($_POST['login']))
+  {
+     $uname=$_POST['username'];
+    $password=$_POST['password'];
+$sql =mysqli_query($con,"SELECT AdminUserName,AdminEmailId,AdminPassword FROM tbladmin WHERE (AdminUserName='$uname' || AdminEmailId='$uname')");
+ $num=mysqli_fetch_array($sql);
+if($num>0)
+{
+$hashpassword=$num['AdminPassword']; 
+if (password_verify($password, $hashpassword)) {
+$_SESSION['login']=$_POST['username'];
+    echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+  } else {
+echo "<script>alert('THỬ LẠI BẠN EIIIII!!!!');</script>";
+ 
+  }
+}
+else{
+echo "<script>alert('Tài khoản chưa đăng ký');</script>";
+  }
+ 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +82,7 @@
                                     <div class="form-group account-btn text-center m-t-10">
                                         <div class="col-xs-12">
                                             <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" name="login">Log In</button>
-                                            <a href="/do-an-/admin/login-author.php" class="btn w-md btn-bordered btn-info waves-effect waves-light">Công tác viên</a>
+                                            <a href="login-author.php" class="btn w-md btn-bordered btn-info waves-effect waves-light">Công tác viên</a>
                                         </div>
                                     </div>
 
@@ -75,7 +103,19 @@
         var resizefunc = [];
     </script>
 
-    <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+
+    </body>
+</html>

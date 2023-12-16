@@ -92,7 +92,7 @@ header('location:index.php');
                                                         <tbody>
         <?php
            
-$query=mysqli_query($con,"Select idctv,name,cccd,password,email,phone,Birthday,city,CreationDate from  tblctv");
+$query=mysqli_query($con,"Select idctv,name,cccd,ctvpassword,email,phone,Birthday,city,CreationDate from  tblctv");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
@@ -102,7 +102,7 @@ while($row=mysqli_fetch_array($query))
             <td><?php echo $row['idctv']?></td>
             <td><?php echo $row['name']?></td>
             <td><?php echo $row['cccd']?></td>
-            <td><?php echo $row['password']?></td>
+            <td><?php echo $row['ctvpassword']?></td>
             <td><?php echo $row['email']?></td>
             <td><?php echo $row['phone']?></td>
             <td><?php echo $row['Birthday']?></td>

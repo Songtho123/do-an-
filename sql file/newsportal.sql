@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 14, 2023 lúc 04:55 PM
+-- Thời gian đã tạo: Th12 16, 2023 lúc 04:19 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -55,15 +55,29 @@ CREATE TABLE `tbladmin` (
   `AdminUserName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `AdminPassword` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `AdminEmailId` varchar(255) NOT NULL,
-  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreationDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `role` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbladmin`
 --
 
-INSERT INTO `tbladmin` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, `CreationDate`) VALUES
-(1, 'admin', '$2y$12$Pva1.RkyZLC7ZW/pLlHAS.ukKvo7M9uJPzThstcmArImfkCdzNtM2', 'songtho123@gmail.com', '2023-10-27 10:51:00');
+INSERT INTO `tbladmin` (`id`, `AdminUserName`, `AdminPassword`, `AdminEmailId`, `CreationDate`, `role`) VALUES
+(1, 'admin', '$2y$12$Pva1.RkyZLC7ZW/pLlHAS.ukKvo7M9uJPzThstcmArImfkCdzNtM2', 'songtho123@gmail.com', '2023-10-27 10:51:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tblbanner`
+--
+
+CREATE TABLE `tblbanner` (
+  `idbanner` int(11) NOT NULL,
+  `img1` varchar(255) NOT NULL,
+  `img2` varchar(255) NOT NULL,
+  `img3` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,21 +143,21 @@ CREATE TABLE `tblctv` (
   `idctv` int(11) NOT NULL,
   `cccd` varchar(20) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `phone` int(13) DEFAULT NULL,
+  `email` text NOT NULL,
+  `ctvpassword` varchar(50) DEFAULT NULL,
+  `phone` varchar(13) DEFAULT NULL,
   `Birthday` date NOT NULL,
   `city` varchar(100) DEFAULT NULL,
-  `CreationDate` timestamp NULL DEFAULT current_timestamp()
+  `CreationDate` timestamp NULL DEFAULT current_timestamp(),
+  `role` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tblctv`
 --
 
-INSERT INTO `tblctv` (`idctv`, `cccd`, `name`, `email`, `password`, `phone`, `Birthday`, `city`, `CreationDate`) VALUES
-(1, '12222222222', 'nguyen le huu tho', 'songtho123@gmail.com', '123', 919855226, '2001-12-12', 'tp hồ chí minh', '2023-12-14 15:54:41'),
-(2, '12222222222', 'nguyen le huu tho', '123', '123', 919855226, '2001-12-12', 'tp hồ chí minh', '2023-12-14 15:55:02');
+INSERT INTO `tblctv` (`idctv`, `cccd`, `name`, `email`, `ctvpassword`, `phone`, `Birthday`, `city`, `CreationDate`, `role`) VALUES
+(1, '12222222222', 'nguyen le huu tho', 'songtho123@gmail.com', '123', '0919855226', '2001-12-12', 'tp hồ chí minh', '2023-12-14 15:54:41', 0);
 
 -- --------------------------------------------------------
 
@@ -233,6 +247,12 @@ ALTER TABLE `tbladmin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `tblbanner`
+--
+ALTER TABLE `tblbanner`
+  ADD PRIMARY KEY (`idbanner`);
+
+--
 -- Chỉ mục cho bảng `tblcategory`
 --
 ALTER TABLE `tblcategory`
@@ -283,6 +303,12 @@ ALTER TABLE `tbladmin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT cho bảng `tblbanner`
+--
+ALTER TABLE `tblbanner`
+  MODIFY `idbanner` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `tblcategory`
 --
 ALTER TABLE `tblcategory`
@@ -298,7 +324,7 @@ ALTER TABLE `tblcomments`
 -- AUTO_INCREMENT cho bảng `tblctv`
 --
 ALTER TABLE `tblctv`
-  MODIFY `idctv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idctv` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tblposts`

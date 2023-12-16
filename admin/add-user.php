@@ -10,11 +10,12 @@ header('location:index.php');
         $name=$_POST['name'];
         $cccd=$_POST['cccd'];
         $email=$_POST['email'];
-        $password=$_POST['password'];
+        $ctvpassword=$_POST['ctvpassword'];
         $phone=$_POST['phone'];
         $city=$_POST['city'];
         $Birthday=$_POST['Birthday'];
-        $query=mysqli_query($con,"insert into tblctv(name,cccd,email,password,phone,city,Birthday)values('$name','$cccd',$email,'$password','$phone','$city','$Birthday')");
+        $role=$_POST['role'];
+        $query=mysqli_query($con,"insert into tblctv(name,cccd,email,ctvpassword,phone,city,Birthday,role)values('$name','$cccd',$email,'$ctvpassword','$phone','$city','$Birthday','$role')");
         if($query){
 
             echo "<script> alert('thêm cộng tác viên thành công') </script>";
@@ -107,12 +108,12 @@ header('location:index.php');
    
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="email" class="form-control" id="email">
+    <input type="text" placeholder="Email" name="email" class="form-control" id=" ">
   </div>
 
   <div class="form-group">
     <label for="email">password</label>
-    <input type="password" placeholder="Password" name="password" class="form-control" id="email">
+    <input type="password" placeholder="Password" name="ctvpassword" class="form-control" id="email">
   </div>
    
   <div class="form-group">
@@ -128,7 +129,8 @@ header('location:index.php');
     <label for="inputZip">birthday</label>
     <input  type="date" name="Birthday" class="form-control">
   </div>
-
+  <input type="checkbox" name="role" value="CTV">Cộng tác viên
+  <br><br>
   <input type="submit" name="submit" class="btn btn-primary" value="Thêm cộng tác viên">
 </form>
 </div>
