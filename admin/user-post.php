@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include('includes/config.php');
-error_reporting(E_ALL);
+error_reporting(0);
 
 // session_start();
 // echo 'Username: ' . $_SESSION['username'] . '<br>';
@@ -15,11 +15,11 @@ error_reporting(E_ALL);
 // exit();
 // }
 
-    if($_SESSION['login1']==true){
+    // if($_SESSION['login1']==true){
     
-    }else{
-        header('location:login-author.php');
-    }
+    // }else{
+    //     header('location:login-author.php');
+    // }
 
     
 if(isset($_POST['submit']))

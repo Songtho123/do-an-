@@ -23,9 +23,9 @@ include('includes/config.php');
 
   <body>
 
-    <?php include('includes/header.php');?>
+<?php include('includes/header.php');?>
 
-    <div class="container">
+<div class="container">
 <?php 
 $pagetype='aboutus';
 $query=mysqli_query($con,"select PageTitle,Description from tblaboutus where PageName='$pagetype'");
