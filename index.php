@@ -22,7 +22,9 @@ include('includes/config.php');
 
 <body>
     <?php include('includes/header.php'); ?>
-
+    <div class="container">
+        <h4 id="today-date"></h4>
+    </div>
     <!-- Your integrated carousel code starts here -->
     <div class="container">
         <h2>Bài báo tiêu điểm</h2>
@@ -130,6 +132,11 @@ include('includes/config.php');
                 }
             });
         });
+        // Display today's date in Vietnamese
+        var today = new Date();
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var formattedDate = today.toLocaleDateString('vi-VN', options);
+        $("#today-date").text("Ngày hôm nay: " + formattedDate);
     </script>
   </body>
 
