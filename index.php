@@ -26,26 +26,28 @@ include('includes/config.php');
         <h4 id="today-date"></h4>
     </div>
     <!-- Your integrated carousel code starts here -->
-    <div class="container">
-        <h2>Bài báo tiêu điểm</h2>
-        <div class="owl-carousel owl-theme">
-            <?php
-            $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
+<div class="container">
+    <h2>Bài báo tiêu điểm</h2>
+    <div class="owl-carousel owl-theme">
+        <?php
+        $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
 
-            while ($featuredPost = mysqli_fetch_assoc($featuredQuery)) {
-            ?>
-                <div class="item">
-                    <img src="admin/postimages/<?php echo htmlentities($featuredPost['PostImage']); ?>" alt="<?php echo htmlentities($featuredPost['PostTitle']); ?>">
-                    <div class="post-details">
-                        <h3><?php echo htmlentities($featuredPost['PostTitle']); ?></h3>
-                        <a href="news-details.php?nid=<?php echo htmlentities($featuredPost['pid']); ?>" class="btn btn-primary">Đọc thêm</a>
-                    </div>
+        while ($featuredPost = mysqli_fetch_assoc($featuredQuery)) {
+            // Limit the title to 50 characters
+            $limitedTitle = strlen($featuredPost['PostTitle']) > 50 ? substr($featuredPost['PostTitle'], 0, 50) . '...' : $featuredPost['PostTitle'];
+        ?>
+            <div class="item">
+                <img src="admin/postimages/<?php echo htmlentities($featuredPost['PostImage']); ?>" alt="<?php echo htmlentities($limitedTitle); ?>">
+                <div class="post-details">
+                    <h3><?php echo htmlentities($limitedTitle); ?></h3>
+                    <a href="news-details.php?nid=<?php echo htmlentities($featuredPost['pid']); ?>" class="btn btn-primary">Đọc thêm</a>
                 </div>
-            <?php
-            }
-            ?>
-        </div>
+            </div>
+        <?php
+        }
+        ?>
     </div>
+</div>
     <div class="container">
       <div class="row" style="margin-top: 0.5%">
         <div class="col-md-8">
