@@ -1,31 +1,51 @@
-<?php 
+<?php
 session_start();
 include('includes/config.php');
-    ?>
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>News Portal | Trang chủ</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/banner.css">
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+</head>
 
-  <body>
-  
-        <?php include('includes/header.php');?>
-        <div class="container">
-        <div class="row" style="margin-top: 0.5%">
+<body>
+    <?php include('includes/header.php'); ?>
+
+    <!-- Your integrated carousel code starts here -->
+    <div class="container">
+        <h2>Bài báo tiêu điểm</h2>
+        <div class="owl-carousel owl-theme">
+            <?php
+            $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
+
+            while ($featuredPost = mysqli_fetch_assoc($featuredQuery)) {
+            ?>
+                <div class="item">
+                    <img src="admin/postimages/<?php echo htmlentities($featuredPost['PostImage']); ?>" alt="<?php echo htmlentities($featuredPost['PostTitle']); ?>">
+                    <div class="post-details">
+                        <h3><?php echo htmlentities($featuredPost['PostTitle']); ?></h3>
+                        <a href="news-details.php?nid=<?php echo htmlentities($featuredPost['pid']); ?>" class="btn btn-primary">Đọc thêm</a>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+    <div class="container">
+      <div class="row" style="margin-top: 0.5%">
         <div class="col-md-8">
         
             <?php 
@@ -71,17 +91,46 @@ include('includes/config.php');
                     <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
                 </ul>
 
-                    </div>
+        </div>
+        
 
-          <?php include('includes/sidebar.php');?>
-          </div>
+        <?php include('includes/sidebar.php');?>
+      </div>
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <?php include ('includes/scroll_to_top.php'); ?>
-    <?php include('includes/footer.php');?>
- 
-</head>
+    <?php include('includes/footer.php'); ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items: 3,
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                nav: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 2,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: false,
+                        loop: false
+                    }
+                }
+            });
+        });
+    </script>
   </body>
 
 </html>
