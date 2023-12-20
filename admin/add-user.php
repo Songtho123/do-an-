@@ -108,7 +108,7 @@ header('location:index.php');
    
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="text" placeholder="Email" name="email" class="form-control" id=" ">
+    <input type="text" placeholder="Email" name="email" class="form-control" id="email">
   </div>
 
   <div class="form-group">

@@ -31,7 +31,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>Newsportal | Add Sub Category</title>
+        <title>Newsportal | Thêm chi tiết danh mục</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -63,16 +63,16 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Sub-Category</h4>
+                                    <h4 class="page-title">Thêm chi tiết danh mục</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Category </a>
+                                            <a href="#">Chi tiết danh mục</a>
                                         </li>
                                         <li class="active">
-                                            Add Sub-Category
+                                        Thêm chi tiết danh mục
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -83,7 +83,7 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
-                                    <h4 class="m-t-0 header-title"><b>Add Sub-Category </b></h4>
+                                    <h4 class="m-t-0 header-title"><b>Thêm chi tiết danh mục</b></h4>
                                     <hr />
                         		
 
@@ -92,13 +92,13 @@ $error="Something went wrong . Please try again.";
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Hoàn thành</strong> <?php echo htmlentities($msg);?>
+<strong>Thành công</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Vui lòng thử lại</strong> <?php echo htmlentities($error);?></div>
+<strong>Không thành công</strong> <?php echo htmlentities($error);?></div>
 <?php } ?>
 
 
@@ -113,10 +113,10 @@ $error="Something went wrong . Please try again.";
             <div class="col-md-6">
                 <form class="form-horizontal" name="category" method="post">
 	                <div class="form-group">
-	                    <label class="col-md-2 control-label">Category</label>
+	                    <label class="col-md-2 control-label">Danh mục</label>
 	                    <div class="col-md-10">
 	                        <select class="form-control" name="category" required>
-                        <option value="">Select Category </option>
+                        <option value="">Danh sách danh mục</option>
 <?php
 $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
@@ -129,13 +129,13 @@ while($result=mysqli_fetch_array($ret))
 	        </div>
 	            </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Sub-Category</label>
+                    <label class="col-md-2 control-label">Chi tiết danh mục</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control" value="" name="subcategory" required>
                     </div>
                         </div>
 	                <div class="form-group">
-	                    <label class="col-md-2 control-label">Sub-Category Description</label>
+	                    <label class="col-md-2 control-label">Nội dung chi tiết</label>
 	                    <div class="col-md-10">
 	                        <textarea class="form-control" rows="5" name="sucatdescription" required></textarea>
 	                    </div>
@@ -144,7 +144,7 @@ while($result=mysqli_fetch_array($ret))
         <div class="form-group">
             <label class="col-md-2 control-label">&nbsp;</label>
             <div class="col-md-10">                                   
-                <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submitsubcat">Submit</button>
+                <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submitsubcat">Nhập</button>
                 </div>
                 </div>
 

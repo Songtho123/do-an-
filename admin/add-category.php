@@ -31,7 +31,7 @@ $error="Something went wrong . Please try again.";
 <html lang="en">
     <head>
 
-        <title>Newsportal | Add Category</title>
+        <title>Newsportal | Thêm danh mục</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -63,16 +63,16 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Category</h4>
+                                    <h4 class="page-title">Thêm danh mục</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Category </a>
+                                            <a href="#">Danh mục</a>
                                         </li>
                                         <li class="active">
-                                            Add Category
+                                            Thêm danh mục
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -84,7 +84,7 @@ $error="Something went wrong . Please try again.";
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box">
-                                    <h4 class="m-t-0 header-title"><b>Add Category </b></h4>
+                                    <h4 class="m-t-0 header-title"><b>Thêm danh mục</b></h4>
                                     <hr />
                         		
 
@@ -93,13 +93,13 @@ $error="Something went wrong . Please try again.";
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+<strong>Thành công</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+<strong>Không thành công</strong> <?php echo htmlentities($error);?></div>
 <?php } ?>
 
 
@@ -114,25 +114,25 @@ $error="Something went wrong . Please try again.";
                         				<div class="col-md-6">
                         					<form class="form-horizontal" name="category" method="post">
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Category</label>
+	                                                <label class="col-md-2 control-label">Danh mục</label>
 	                                                <div class="col-md-10">
 	                                                    <input type="text" class="form-control" value="" name="category" required>
 	                                                </div>
 	                                            </div>
 	                                     
 	                                            <div class="form-group">
-	                                                <label class="col-md-2 control-label">Category Description</label>
+	                                                <label class="col-md-2 control-label">Nội dung</label>
 	                                                <div class="col-md-10">
 	                                                    <textarea class="form-control" rows="5" name="description" required></textarea>
 	                                                </div>
 	                                            </div>
 
-        <div class="form-group">
+                                                <div class="form-group">
                                                     <label class="col-md-2 control-label">&nbsp;</label>
                                                     <div class="col-md-10">
                                                   
                                                 <button type="submit" class="btn btn-custom waves-effect waves-light btn-md" name="submit">
-                                                    Submit
+                                                    Nhập
                                                 </button>
                                                     </div>
                                                 </div>

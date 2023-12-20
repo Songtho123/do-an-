@@ -33,7 +33,7 @@ if($_GET['action']=='del' && $_GET['rid'])
 <html lang="en">
     <head>
 
-        <title> | Manage Categories</title>
+        <title>Newsportal | Bình luận</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -59,16 +59,16 @@ if($_GET['action']=='del' && $_GET['rid'])
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Manage Unapproved Comments</h4>
+                                    <h4 class="page-title">Xét duyệt bình luận</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Comments </a>
+                                            <a href="#">Comments</a>
                                         </li>
                                         <li class="active">
-                                          Unapprove Comments
+                                          Quản lý bình luận
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -81,13 +81,13 @@ if($_GET['action']=='del' && $_GET['rid'])
  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
+<strong>Thành công</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
 <?php if($delmsg){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Oh snap!</strong> <?php echo htmlentities($delmsg);?></div>
+<strong>Không thành công</strong> <?php echo htmlentities($delmsg);?></div>
 <?php } ?>
 
 
@@ -100,14 +100,14 @@ if($_GET['action']=='del' && $_GET['rid'])
                                                     <table class="table m-0 table-colored-bordered table-bordered-primary">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th> Name</th>
-                                                                <th>Email Id</th>
-                                                                <th width="300">Comment</th>
-                                                                 <th>Status</th>
-                                                                <th>Post / News</th>
-                                                                <th>Posting Date</th>
-                                                                <th>Action</th>
+                                                                <th>Stt</th>
+                                                                <th>Họ tên</th>
+                                                                <th>Email</th>
+                                                                <th width="300">Bình luận</th>
+                                                                <th>Trạng thái</th>
+                                                                <th>Bài viết</th>
+                                                                <th>Ngày bình luận</th>
+                                                                <th>Chỉnh sửa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -125,12 +125,11 @@ while($row=mysqli_fetch_array($query))
 <td><?php echo htmlentities($row['comment']);?></td>
 <td><?php $st=$row['status'];
 if($st=='0'):
-echo "Wating for approval";
+echo "Chờ phê duyệt";
 else:
-echo "Approved";
+echo "Phê duyệt";
 endif;
 ?></td>
-
 
 <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><?php echo htmlentities($row['PostTitle']);?></a> </td>
 <td><?php echo htmlentities($row['postingDate']);?></td>
@@ -140,7 +139,6 @@ endif;
 <?php else :?>
   <a href="unapprove-comment.php?appid=<?php echo htmlentities($row['id']);?>" title="Approve this comment"><i class="ion-arrow-return-right" style="color: #29b6f6;"></i></a> 
 <?php endif;?>
-
 	&nbsp;<a href="unapprove-comment.php?rid=<?php echo htmlentities($row['id']);?>&&action=del"> <i class="fa fa-trash-o" style="color: #f05050"></i></a> </td>
 </tr>
 <?php
@@ -151,25 +149,19 @@ $cnt++;
                                                     </table>
                                                 </div>
 											</div>
-
 										</div>
-
 									</div>
-                
-<div class="row">
-<div class="col-md-12">
-<div class="demo-box m-t-20">
-<div class="m-b-30">
- </div>
-                             
-											</div>
-										</div>
-									</div>                  
-
+                                        <div class="row">
+                                        <div class="col-md-12">
+                                        <div class="demo-box m-t-20">
+                                        <div class="m-b-30">
+                                        </div>
+									</div>
+								</div>
+						</div>                  
                     </div> 
                 </div> 
             </div>
-
         </div>
         <script>
             var resizefunc = [];

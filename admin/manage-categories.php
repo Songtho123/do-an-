@@ -33,7 +33,7 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
 <html lang="en">
     <head>
 
-        <title> | Manage Categories</title>
+        <title>Newsportal | Danh sách danh mục</title>
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -63,16 +63,16 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Manage Categories</h4>
+                                    <h4 class="page-title">Danh sách danh mục</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Category </a>
+                                            <a href="#">Danh mục </a>
                                         </li>
                                         <li class="active">
-                                           Manage Categories
+                                           Danh sách đã thêm
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -85,13 +85,13 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
+<strong>Thành công</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
 <?php if($delmsg){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Oh snap!</strong> <?php echo htmlentities($delmsg);?></div>
+<strong>Không thành công</strong> <?php echo htmlentities($delmsg);?></div>
 <?php } ?>
 
 </div>
@@ -101,7 +101,7 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
 											<div class="demo-box m-t-20">
 <div class="m-b-30">
 <a href="add-category.php">
-<button id="addToTable" class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline" ></i></button>
+<button id="addToTable" class="btn btn-success waves-effect waves-light">Thêm danh mục<i class="mdi mdi-plus-circle-outline" ></i></button>
 </a>
  </div>
 
@@ -109,13 +109,12 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
                                                     <table class="table m-0 table-colored-bordered table-bordered-primary">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th> Category</th>
-                                                                <th>Description</th>
-                                                          
-                                                                <th>Posting Date</th>
-                                                                  <th>Last updation Date</th>
-                                                                <th>Action</th>
+                                                                <th>id</th>
+                                                                <th>Danh mục</th>
+                                                                <th>Nội dung</th>
+                                                                <th>Ngày đăng</th>
+                                                                <th>Thời gian cập nhật</th>
+                                                                <th>Chỉnh sửa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -161,13 +160,12 @@ $cnt++;
 <table class="table m-0 table-colored-bordered table-bordered-danger">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th> Category</th>
-                                                                <th>Description</th>
-                                                          
-                                                                <th>Posting Date</th>
-                                                                  <th>Last updation Date</th>
-                                                                <th>Action</th>
+                                                            <th>id</th>
+                                                                <th>Danh mục</th>
+                                                                <th>Nội dung</th>
+                                                                <th>Ngày đăng</th>
+                                                                <th>Thời gian cập nhật</th>
+                                                                <th>Chỉnh sửa</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>

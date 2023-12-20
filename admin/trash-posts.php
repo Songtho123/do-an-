@@ -71,16 +71,16 @@ if($_GET['presid'])
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Tin tức nháp </h4>
+                                    <h4 class="page-title">Bài viết đã xóa </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Bài báo</a>
+                                            <a href="#">Bài viết</a>
                                         </li>
                                         <li class="active">
-                                          Bài báo nháp
+                                          Bài đã xóa
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -108,47 +108,47 @@ if($_GET['presid'])
                                 <div class="card-box">
 
                                     <div class="table-responsive">
-<table class="table table-colored table-centered table-inverse m-0">
-<thead>
-<tr>
-                                           
-<th>Tiêu đề</th>
-<th>Danh mục</th>
-<th>Danh mục con</th>
-<th>Hành động</th>
-</tr>
-</thead>
-<tbody>
+                                        <table class="table table-colored table-centered table-inverse m-0">
+                                        <thead>
+                                        <tr>
+                                                                                
+                                        <th>Tiêu đề</th>
+                                        <th>Danh mục</th>
+                                        <th>Danh mục chi tiết</th>
+                                        <th>Tác giả</th>
+                                        <th>Chỉnh sửa</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
 
-<?php
-$query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=0");
-$rowcount=mysqli_num_rows($query);
-if($rowcount==0)
-{
-?>
-<tr>
+                                        <?php
+                                        $query=mysqli_query($con,"select tblposts.id as postid,tblposts.PostTitle as title,tblposts.Ctvid as Ctvid,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=0");
+                                        $rowcount=mysqli_num_rows($query);
+                                        if($rowcount==0)
+                                        {
+                                        ?>
+                                        <tr>
 
-<td colspan="4" align="center"><h3 style="color:red">Không lưu lại dữ liệu</h3></td>
-<tr>
-<?php 
-} else {
-while($row=mysqli_fetch_array($query))
-{
-?>
- <tr>
-<td><b><?php echo htmlentities($row['title']);?></b></td>
-<td><?php echo htmlentities($row['category'])?></td>
-<td><?php echo htmlentities($row['subcategory'])?></td>
-
-<td>
-<a href="trash-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=restore" onclick="return confirm('Do you really want to restore ?')"> <i class="ion-arrow-return-right" title="Restore this Post"></i></a>
-    &nbsp;
-    <a href="trash-posts.php?presid=<?php echo htmlentities($row['postid']);?>&&action=perdel" onclick="return confirm('Do you really want to delete ?')"><i class="fa fa-trash-o" style="color: #f05050" title="Permanently delete this post"></i></a> 
- </td>
- </tr>
-<?php } }?>
-                                               
-                                            </tbody>
+                                        <td colspan="4" align="center"><h3 style="color:red">Không lưu lại dữ liệu</h3></td>
+                                        <tr>
+                                        <?php 
+                                        } else {
+                                        while($row=mysqli_fetch_array($query))
+                                        {
+                                        ?>
+                                        <tr>
+                                        <td><b><?php echo htmlentities($row['title']);?></b></td>
+                                        <td><?php echo htmlentities($row['category'])?></td>
+                                        <td><?php echo htmlentities($row['subcategory'])?></td>
+                                        <td><?php echo htmlentities($row['Ctvid'])?></td>
+                                        <td>
+                                        <a href="trash-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=restore" onclick="return confirm('Do you really want to restore ?')"> <i class="ion-arrow-return-right" title="Restore this Post"></i></a>
+                                            &nbsp;
+                                            <a href="trash-posts.php?presid=<?php echo htmlentities($row['postid']);?>&&action=perdel" onclick="return confirm('Do you really want to delete ?')"><i class="fa fa-trash-o" style="color: #f05050" title="Permanently delete this post"></i></a> 
+                                        </td>
+                                        </tr>
+                                        <?php } }?>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>

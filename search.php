@@ -1,6 +1,6 @@
 <?php 
 session_start();
-error_reporting(0);
+
 include('includes/config.php');
 
     ?>
@@ -30,11 +30,7 @@ include('includes/config.php');
 
      
       <div class="row" style="margin-top: 4%">
-
-        <!-- Blog Entries Column -->
         <div class="col-md-8">
-
-          <!-- Blog Post -->
 <?php 
         if($_POST['searchtitle']!=''){
 $st=$_SESSION['searchtitle']=$_POST['searchtitle'];
@@ -60,31 +56,30 @@ $st;
         $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.PostTitle like '%$st%' and tblposts.Is_Active=1 LIMIT $offset, $no_of_records_per_page");
-
+        $query = mysqli_query($con, "SELECT tblposts.id as pid, tblposts.PostTitle as posttitle, tblcategory.CategoryName as category, tblsubcategory.Subcategory as subcategory, tblposts.PostDetails as postdetails, tblposts.PostingDate as postingdate, tblposts.PostUrl as url, tblposts.PostImage as postimage FROM tblposts LEFT JOIN tblcategory ON tblcategory.id = tblposts.CategoryId LEFT JOIN tblsubcategory ON tblsubcategory.SubCategoryId = tblposts.SubCategoryId WHERE tblposts.PostTitle LIKE '%$st%' AND tblposts.Is_Active = 1 LIMIT $offset, $no_of_records_per_page");
 $rowcount=mysqli_num_rows($query);
 if($rowcount==0)
 {
 echo "No record found";
 }
 else {
-while ($row=mysqli_fetch_array($query)) {
-
-
-?>
-
-          <div class="card mb-4">
-      
-            <div class="card-body">
-              <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-              <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <div class="card-footer text-muted">
-              Đăng lúc <?php echo htmlentities($row['postingdate']);?>
-           
-            </div>
-          </div>
+  while ($row = mysqli_fetch_array($query)) {
+    ?>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title"><?php echo htmlentities($row['posttitle']); ?></h2>
+            <?php
+            // Check if PostImage is not empty before displaying the image
+            if (!empty($row['postimage'])) {
+                ?>
+                <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['postimage']); ?>" alt="<?php echo htmlentities($row['posttitle']); ?>">
+                <?php
+            }
+            ?> 
+            <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+       
+    </div>
 <?php } ?>
 
     <ul class="pagination justify-content-center mb-4">

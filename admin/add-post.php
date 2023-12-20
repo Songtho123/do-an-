@@ -103,16 +103,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Thêm tin tức </h4>
+                                    <h4 class="page-title">Thêm Bài viết</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Post</a>
+                                            <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Thêm tin tức </a>
+                                            <a href="#">Bài viết</a>
                                         </li>
                                         <li class="active">
-                                            Thêm tin tức
+                                            Thêm Bài viết
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -124,13 +124,13 @@ function getSubCat(val) {
 <div class="col-sm-6">  
 <?php if($msg){ ?>
 <div class="alert alert-success" role="alert">
-<strong>Hoàn thành!</strong> <?php echo htmlentities($msg);?>
+<strong>Thành công</strong> <?php echo htmlentities($msg);?>
 </div>
 <?php } ?>
 
 <?php if($error){ ?>
 <div class="alert alert-danger" role="alert">
-<strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+<strong>Không thành công</strong> <?php echo htmlentities($error);?></div>
 <?php } ?>
 
 
@@ -142,59 +142,62 @@ function getSubCat(val) {
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="p-6">
                                     <div class="">
-<form name="addpost" method="post" enctype="multipart/form-data">
- <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Tiêu đề bài báo</label>
-<input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
-</div>
+                                        <form name="addpost" method="post" enctype="multipart/form-data">
+                                        <div class="form-group m-b-20">
+                                        <label for="exampleInputEmail1">Tiêu đề bài viết</label>
+                                        <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+                                        </div>
 
 
 
-<div class="form-group m-b-20">
-<label for="exampleInputEmail1">Danh mục</label>
-<select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
-<option value="">Select Danh mục </option>
-<?php
-$ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
-while($result=mysqli_fetch_array($ret))
-{    
-?>
-<option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
-<?php } ?>
+                                        <div class="form-group m-b-20">
+                                        <label for="exampleInputEmail1">Danh mục</label>
+                                        <select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
+                                        <option value="">Select Danh mục </option>
+                                        <?php
+                                        $ret=mysqli_query($con,"select id,CategoryName from  tblcategory where Is_Active=1");
+                                        while($result=mysqli_fetch_array($ret))
+                                        {    
+                                        ?>
+                                        <option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
+                                        <?php } ?>
 
-</select> 
-</div>
-    
-<div class="form-group m-b-20">
-<label for="exampleInputEmail1">Danh mục nhỏ</label>
-<select class="form-control" name="subcategory" id="subcategory" required>
+                                        </select> 
+                                        </div>
+                                            
+                                        <div class="form-group m-b-20">
+                                        <label for="exampleInputEmail1">Danh mục chi tiết</label>
+                                        <select class="form-control" name="subcategory" id="subcategory" required>
 
-</select> 
-</div>
-         
+                                        </select> 
+                                        </div>
+                                                
 
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
-<textarea class="summernote" name="postdescription" required></textarea>
-</div>
-</div>
-</div>
-
-
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
-</div>
-</div>
-</div>
+                                        <div class="row">
+                                        <div class="col-sm-12">
+                                        <div class="card-box">
+                                        <h4 class="m-b-30 m-t-0 header-title"><b>Nội dung</b></h4>
+                                        <textarea class="summernote" name="postdescription" required></textarea>
+                                        </div>
+                                        </div>
+                                        </div>
 
 
-<button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
- <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
+                                        <div class="row">
+                                        <div class="col-sm-12">
+                                        <div class="card-box">
+                                        <h4 class="m-b-30 m-t-0 header-title"><b>Hình ảnh</b></h4>
+                                        <input type="file" class="form-control" id="postimage" name="postimage"  required>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="form-group">
+                                                    <label for="admin">name</label>
+                                                    <input type="text" class="form-control" disabled value="admin">
+                                            </div>
+
+                                        <button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
+                                        <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
                                         </form>
                                     </div>
                                 </div> 

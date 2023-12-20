@@ -25,7 +25,6 @@ include('includes/config.php');
     <div class="container">
         <h4 id="today-date"></h4>
     </div>
-    <!-- Your integrated carousel code starts here -->
 <div class="container">
     <h2>Bài báo tiêu điểm</h2>
     <div class="owl-carousel owl-theme">
@@ -33,7 +32,6 @@ include('includes/config.php');
         $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
 
         while ($featuredPost = mysqli_fetch_assoc($featuredQuery)) {
-            // Limit the title to 50 characters
             $limitedTitle = strlen($featuredPost['PostTitle']) > 50 ? substr($featuredPost['PostTitle'], 0, 50) . '...' : $featuredPost['PostTitle'];
         ?>
             <div class="item">

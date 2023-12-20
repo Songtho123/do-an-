@@ -5,10 +5,10 @@ include('includes/config.php');
 
 if(isset($_POST['login']))
   {
-     $uname=$_POST['username'];
+    $uname=$_POST['username'];
     $password=$_POST['password'];
 $sql =mysqli_query($con,"SELECT AdminUserName,AdminEmailId,AdminPassword FROM tbladmin WHERE (AdminUserName='$uname' || AdminEmailId='$uname')");
- $num=mysqli_fetch_array($sql);
+$num=mysqli_fetch_array($sql);
 if($num>0)
 {
 $hashpassword=$num['AdminPassword']; 
