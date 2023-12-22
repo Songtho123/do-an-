@@ -129,9 +129,22 @@ include('includes/config.php');
                         nav: false,
                         loop: false
                     }
-                }
+                },
+                onInitialized: setSameHeight,
+                onResized: setSameHeight
             });
+
+            // Function to set the same height for all items
+            function setSameHeight(event) {
+                var maxHeight = 0;
+                owl.find('.item').each(function() {
+                    var currentHeight = $(this).height();
+                    maxHeight = (currentHeight > maxHeight) ? currentHeight : maxHeight;
+                });
+                owl.find('.item').height(maxHeight);
+            }
         });
+          
         // Display today's date in Vietnamese
         var today = new Date();
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

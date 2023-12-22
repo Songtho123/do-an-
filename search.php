@@ -69,13 +69,13 @@ else {
         <div class="card-body">
             <h2 class="card-title"><?php echo htmlentities($row['posttitle']); ?></h2>
             <?php
-            // Check if PostImage is not empty before displaying the image
             if (!empty($row['postimage'])) {
                 ?>
-                <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['postimage']); ?>" alt="<?php echo htmlentities($row['posttitle']); ?>">
+                <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['postimage']); ?>" alt="<?php echo htmlentities($row['posttitle']); ?>"style="height: 375px;">
                 <?php
             }
-            ?> 
+            ?> <br> 
+            <br> <br> 
             <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-primary">Read More &rarr;</a>
         </div>
        
