@@ -26,7 +26,7 @@ include('includes/config.php');
         <h4 id="today-date"></h4>
     </div>
 <div class="container">
-    <h2>Bài báo tiêu điểm</h2>
+<h2>Bài báo tiêu điểm</h2>
     <div class="owl-carousel owl-theme">
         <?php
         $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
@@ -35,10 +35,12 @@ include('includes/config.php');
             $limitedTitle = strlen($featuredPost['PostTitle']) > 50 ? substr($featuredPost['PostTitle'], 0, 50) . '...' : $featuredPost['PostTitle'];
         ?>
             <div class="item">
-                <img src="admin/postimages/<?php echo htmlentities($featuredPost['PostImage']); ?>" alt="<?php echo htmlentities($limitedTitle); ?>">
-                <div class="post-details">
-                    <h3><?php echo htmlentities($limitedTitle); ?></h3>
-                    <a href="news-details.php?nid=<?php echo htmlentities($featuredPost['pid']); ?>" class="btn btn-primary">Đọc thêm</a>
+                <div class="item-content">
+                    <img src="admin/postimages/<?php echo htmlentities($featuredPost['PostImage']); ?>" alt="<?php echo htmlentities($limitedTitle); ?>">
+                    <div class="post-details">
+                        <h3><?php echo htmlentities($limitedTitle); ?></h3>
+                        <a href="news-details.php?nid=<?php echo htmlentities($featuredPost['pid']); ?>" class="btn btn-primary">Đọc thêm</a>
+                    </div>
                 </div>
             </div>
         <?php
@@ -151,6 +153,29 @@ include('includes/config.php');
         var formattedDate = today.toLocaleDateString('vi-VN', options);
         $("#today-date").text("Ngày hôm nay: " + formattedDate);
     </script>
+<style>
+    .owl-carousel .item {
+        height: 300px; /* Set a fixed height for the entire item */
+        display: flex;
+    }
+
+    .owl-carousel .item-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .owl-carousel .item img {
+        width: 100%;
+        height: 100%; /* Ensure the image takes up the full height of its container */
+        object-fit: cover; /* Maintain image aspect ratio */
+    }
+
+    .owl-carousel .post-details {
+        padding: 10px;
+        background: #fff;
+    }
+</style>
   </body>
 
 </html>
