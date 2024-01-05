@@ -118,7 +118,7 @@ $rowcount = mysqli_num_rows($query);
                                                             class="fa fa-pencil"
                                                             style="color: #29b6f6;"></i></a> &nbsp;<a
                                                         href="manage-posts.php?pid=<?php echo htmlentities($row['postid']);?>&&action=del"
-                                                        onclick="return confirm('Do you really want to delete ?')"> <i
+                                                        onclick="return confirm('Chắc chắn xóa?')"> <i
                                                             class="fa fa-trash-o"
                                                             style="color: #f05050"></i></a> </td>
                                             </tr>

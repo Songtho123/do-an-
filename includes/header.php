@@ -11,7 +11,7 @@
                     <a class="nav-link" href="index.php">Trang chủ</a>
                 </li>
                 <?php
-                $query = mysqli_query($con, "select id,CategoryName from tblcategory");
+                $query = mysqli_query($con, "select id,CategoryName from tblcategory WHERE Is_Active = 1");
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <li class="nav-item">
