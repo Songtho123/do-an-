@@ -44,7 +44,7 @@ include('includes/config.php');
     </div>
 <div class="container">
 <h2>Bài báo tiêu điểm</h2>
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel">
         <?php
         $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
 
@@ -172,7 +172,7 @@ include('includes/config.php');
     </script>
 <style>
     .owl-carousel .item {
-        height: 300px; /* Set a fixed height for the entire item */
+        height: 400px; /* Set a fixed height for the entire item */
         display: flex;
     }
 

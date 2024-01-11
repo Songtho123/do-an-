@@ -54,19 +54,34 @@ endif;
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 10px;
+        color: #333; /* Dark color for the title */
     }
 
     .card-subtitle {
         font-size: 14px;
-        color: #6c757d; /* Gray color for subtitles */
+        color: #555; /* Slightly darker than the base color for subtitles */
         margin-bottom: 10px;
     }
 
     .card-text {
         font-size: 16px;
         margin-bottom: 20px;
+        color: #666; /* Slightly darker than the base color for text */
     }
-    </style>
+
+    .card-footer {
+        background-color: #f8f9fa; /* Light gray background for the footer */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary blue color for the button */
+        border-color: #007bff; /* Matching border color */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }    </style>
 
   </head>
 
