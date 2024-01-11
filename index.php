@@ -18,6 +18,23 @@ include('includes/config.php');
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <style>
+    .post-details {
+        background-color: white;
+    }
+    #today-date {
+        text-align: center;
+        color: #007bff; /* Blue color, you can change it to your preferred color */
+        font-size: 24px; /* Adjust the font size as needed */
+        margin-top: 20px; /* Add some top margin for spacing */
+        font-weight: bold; /* Make the text bold */
+    }
+    .owl-carousel .item img {
+        width: 100%;
+        height: 100%; /* Set a fixed height for the carousel items */
+        object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    }
+</style>
 </head>
 
 <body>
