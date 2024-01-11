@@ -50,58 +50,23 @@ endif;
         font-size: 18px; /* Adjust the font size as needed */
         font-weight: bold; /* Add boldness for emphasis */
     }
-    .comment-container {
-        margin-top: 20px; /* Add margin to separate comments from the form */
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
     }
 
-    .comment {
-        background-color: #f8f9fa; /* Light gray background color for comments */
-        border: 1px solid #ddd; /* Border to separate comments */
-        padding: 10px; /* Add padding for better spacing */
-        margin-bottom: 10px; /* Margin between individual comments */
+    .card-subtitle {
+        font-size: 14px;
+        color: #6c757d; /* Gray color for subtitles */
+        margin-bottom: 10px;
     }
 
-    .comment img {
-        width: 40px; /* Set a fixed width for user avatars */
-        height: 40px; /* Set a fixed height for user avatars */
-        border-radius: 50%; /* Make user avatars circular */
-        margin-right: 10px; /* Margin between avatar and comment text */
+    .card-text {
+        font-size: 16px;
+        margin-bottom: 20px;
     }
-    .comment-form-container {
-        margin-top: 20px; /* Add margin to separate the form from comments */
-    }
-
-    .comment-form {
-        background-color: #f8f9fa; /* Light gray background color for the form */
-        border: 1px solid #ddd; /* Border to separate the form */
-        padding: 20px; /* Add padding for better spacing */
-        border-radius: 5px; /* Optional: Add border radius for a rounded look */
-    }
-
-    .comment-form label {
-        font-weight: bold; /* Make labels bold for emphasis */
-        margin-bottom: 5px; /* Add margin between labels and input fields */
-    }
-
-    .comment-form input,
-    .comment-form textarea {
-        width: 100%; /* Make input fields take up full width */
-        margin-bottom: 10px; /* Add margin between input fields */
-        padding: 8px; /* Add padding for input fields */
-        border: 1px solid #ccc; /* Add a border to input fields */
-        border-radius: 4px; /* Optional: Add border radius for a rounded look */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }
-
-    .comment-form button {
-        background-color: #007bff; /* Blue background color for the submit button */
-        color: #fff; /* White text color for the submit button */
-        padding: 10px 20px; /* Add padding for the submit button */
-        border: none; /* Remove the default button border */
-        border-radius: 4px; /* Optional: Add border radius for a rounded look */
-        cursor: pointer; /* Change cursor to a pointer on hover */
-    }
-</style>
+    </style>
 
   </head>
 
@@ -120,23 +85,19 @@ while ($row=mysqli_fetch_array($query)) {
 ?>
 
           <div class="card mb-2">
-      
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-              <p><b>Danh mục : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
+              <p class="card-subtitle mb-2 text-muted">
+                <b>Danh mục : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
                 <b>Danh mục nhỏ : </b><?php echo htmlentities($row['subcategory']);?> <b> Đăng lúc </b><?php echo htmlentities($row['postingdate']);?></p>
-                <hr />
-
- <img class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
-  
-              <p class="card-text"><?php 
-$pt=$row['postdetails'];
-              echo  (substr($pt,0));?></p>
-             
+                <hr class="mt-0 mb-3"/>
+                <img class="card-img-top img-fluid" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+                            <p class="card-text"><?php 
+                $pt=$row['postdetails'];
+              echo  (substr($pt,0));?>
+              </p>
             </div>
             <div class="card-footer text-muted">
-             
-           
             </div>
           </div>
 <?php } ?>
