@@ -18,6 +18,23 @@ include('includes/config.php');
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <style>
+    .post-details {
+        background-color: white;
+    }
+    #today-date {
+        text-align: center;
+        color: #007bff; /* Blue color, you can change it to your preferred color */
+        font-size: 24px; /* Adjust the font size as needed */
+        margin-top: 20px; /* Add some top margin for spacing */
+        font-weight: bold; /* Make the text bold */
+    }
+    .owl-carousel .item img {
+        width: 100%;
+        height: 100%; /* Set a fixed height for the carousel items */
+        object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    }
+</style>
 </head>
 
 <body>
@@ -27,7 +44,7 @@ include('includes/config.php');
     </div>
 <div class="container">
 <h2>Bài báo tiêu điểm</h2>
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel">
         <?php
         $featuredQuery = mysqli_query($con, "SELECT id as pid, PostTitle, PostImage, PostUrl FROM tblposts WHERE Is_Active = 1 ORDER BY PostingDate DESC LIMIT 10");
 
@@ -155,7 +172,7 @@ include('includes/config.php');
     </script>
 <style>
     .owl-carousel .item {
-        height: 300px; /* Set a fixed height for the entire item */
+        height: 400px; /* Set a fixed height for the entire item */
         display: flex;
     }
 

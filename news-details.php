@@ -43,6 +43,45 @@ endif;
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+    .card-header {
+        background-color: #007bff; /* Change to your preferred background color */
+        color: #fff; /* Change to your preferred text color */
+        font-size: 18px; /* Adjust the font size as needed */
+        font-weight: bold; /* Add boldness for emphasis */
+    }
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333; /* Dark color for the title */
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+        color: #555; /* Slightly darker than the base color for subtitles */
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #666; /* Slightly darker than the base color for text */
+    }
+
+    .card-footer {
+        background-color: #f8f9fa; /* Light gray background for the footer */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary blue color for the button */
+        border-color: #007bff; /* Matching border color */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }    </style>
 
   </head>
 
@@ -60,24 +99,20 @@ $pid=intval($_GET['nid']);
 while ($row=mysqli_fetch_array($query)) {
 ?>
 
-          <div class="card mb-4">
-      
+          <div class="card mb-2">
             <div class="card-body">
               <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-              <p><b>Danh mục : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
+              <p class="card-subtitle mb-2 text-muted">
+                <b>Danh mục : </b> <a href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color: black;"><?php echo htmlentities($row['category']);?></a> |
                 <b>Danh mục nhỏ : </b><?php echo htmlentities($row['subcategory']);?> <b> Đăng lúc </b><?php echo htmlentities($row['postingdate']);?></p>
-                <hr />
-
- <img class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
-  
-              <p class="card-text"><?php 
-$pt=$row['postdetails'];
-              echo  (substr($pt,0));?></p>
-             
+                <hr class="mt-0 mb-3"/>
+                <img class="card-img-top img-fluid" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+                            <p class="card-text"><?php 
+                $pt=$row['postdetails'];
+              echo  (substr($pt,0));?>
+              </p>
             </div>
             <div class="card-footer text-muted">
-             
-           
             </div>
           </div>
 <?php } ?>
@@ -86,22 +121,20 @@ $pt=$row['postdetails'];
       <?php include('includes/sidebar.php');?>
       </div>
 
- <div class="row" style="margin-top: -8%">
+ <div class="row">
    <div class="col-md-8">
-<div class="card my-4">
-            <h5 class="card-header">Để lại bình luận:</h5>
-            <div class="card-body">
-              <form name="Comment" method="post">
-      <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
- <div class="form-group">
-<input type="text" name="name" class="form-control" placeholder="Enter your fullname" required>
-</div>
+    <div class="card my-4">
+          <h5 class="card-header">Để lại bình luận:</h5>
+          <div class="card-body">
+            <form name="Comment" method="post">
+            <input type="hidden" name="csrftoken" value="<?php echo htmlentities($_SESSION['token']); ?>" />
+          <div class="form-group">
+          <input type="text" name="name" class="form-control" placeholder="Enter your fullname" required>
+    </div>
 
  <div class="form-group">
  <input type="email" name="email" class="form-control" placeholder="Enter your Valid email" required>
  </div>
-
-
                 <div class="form-group">
                   <textarea class="form-control" name="comment" rows="3" placeholder="Comment" required></textarea>
                 </div>
@@ -115,7 +148,7 @@ $pt=$row['postdetails'];
  $query=mysqli_query($con,"select name,comment,postingDate from  tblcomments where postId='$pid' and status='$sts'");
 while ($row=mysqli_fetch_array($query)) {
 ?>
-<div class="media mb-4">
+<div class="media mb-2">
             <img class="d-flex mr-3 rounded-circle" src="images/usericon.png" alt="">
             <div class="media-body">
               <h5 class="mt-0"><?php echo htmlentities($row['name']);?> <br />
