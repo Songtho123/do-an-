@@ -82,7 +82,7 @@ echo "<script>alert('Tài khoản chưa đăng ký');</script>";
                                     <div class="form-group account-btn text-center m-t-10">
                                         <div class="col-xs-12">
                                             <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" name="login">Log In</button>
-                                            <a href="login-author.php" class="btn w-md btn-bordered btn-info waves-effect waves-light">Công tác viên</a>
+                                            <!-- <a href="login-author.php" class="btn w-md btn-bordered btn-info waves-effect waves-light">Công tác viên</a> -->
                                         </div>
                                     </div>
 

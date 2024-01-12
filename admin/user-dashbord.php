@@ -1,9 +1,10 @@
 <?php
 session_start();
 include('includes/config.php');
-if($_SESSION['username']==true){
+if(strlen($_SESSION['login1'])==0)
+  { 
+header('location:login-author.php');
 
-    header('location:login-author.php');
 } else {
     // Your user-author.php code goes here
 
@@ -96,7 +97,7 @@ $countsubcat=mysqli_num_rows($query);
                             </div>
 </a>
 
-     <a href="manage-posts.php">                       
+     <a href="user-manage-posts.php">                       
         <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
@@ -116,7 +117,7 @@ $countposts=mysqli_num_rows($query);
    
    <div class="row">
                     
-      <a href="trash-posts.php"> <div class="col-lg-4 col-md-4 col-sm-6">
+      <a href="user-trash-posts.php"> <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
@@ -130,7 +131,7 @@ $countposts=mysqli_num_rows($query);
                                 </div>
                             </div></a>
 
-</div>
+                        </div>
 
                     </div> 
 

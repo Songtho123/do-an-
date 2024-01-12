@@ -5,42 +5,24 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST['login1'])){
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    
-    $query=mysqli_query($con, "select * from tblctv where cccd='$username' AND ctvpassword='$password' ");
-    
-    if ($query) {
-        if (mysqli_num_rows($query)>0) {
-            $_SESSION['username']=$username;
-    
-            header('location:user-dashbord.php');
-        }else{
-// if (isset($_POST['login1'])) {
-//     $uname = $_POST['username'];
-//     $ctvpassword = $_POST['password'];
-//     $query = mysqli_query($con, "SELECT cccd, phone, ctvpassword, role FROM tblctv WHERE (cccd='$uname' OR phone='$uname')");
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-//     if ($query) {
-//         if ($row = mysqli_fetch_assoc($query)) {
-//             // Check if the user account is active
-//             if ($row['role'] == 0) {
-//                 // Verify the password
-//                 if (password_verify($ctvpassword, $row['ctvpassword'])) {
-//                     $_SESSION['cccd'] = $row['cccd'];
-//                     $_SESSION['login1'] = true;
-//                     header('location:user-dashbord.php');
-//                     exit();
-//                 } else {
-                    echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
-                }
-            } else {
-                echo "<script>alert('Tài khoản không có quyền truy cập');</script>";
-            }
+    $query = mysqli_query($con, "select * from tblctv where cccd='$username' AND ctvpassword='$password' ");
+
+    if ($query) {
+        if (mysqli_num_rows($query) > 0) {
+            $_SESSION['username'] = $username;
+            header('location:user-dashbord.php');
         } else {
             echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
         }
-    
+    } else {
+        echo "<script>alert('Tài khoản không có quyền truy cập');</script>";
+    }
+} else {
+    echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
+}
 
 ?>
 <!DOCTYPE html>
