@@ -43,46 +43,6 @@ endif;
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
-    .card-header {
-        background-color: #007bff; /* Change to your preferred background color */
-        color: #fff; /* Change to your preferred text color */
-        font-size: 18px; /* Adjust the font size as needed */
-        font-weight: bold; /* Add boldness for emphasis */
-    }
-    .card-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #333; /* Dark color for the title */
-    }
-
-    .card-subtitle {
-        font-size: 14px;
-        color: #555; /* Slightly darker than the base color for subtitles */
-        margin-bottom: 10px;
-    }
-
-    .card-text {
-        font-size: 16px;
-        margin-bottom: 20px;
-        color: #666; /* Slightly darker than the base color for text */
-    }
-
-    .card-footer {
-        background-color: #f8f9fa; /* Light gray background for the footer */
-    }
-
-    .btn-primary {
-        background-color: #007bff; /* Primary blue color for the button */
-        border-color: #007bff; /* Matching border color */
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-        border-color: #0056b3;
-    }    
-    </style>
 
   </head>
 

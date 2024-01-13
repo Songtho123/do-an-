@@ -11,7 +11,7 @@
             {
 
             ?>
-                <h3 class="mt-2 mb-1"><?php echo htmlentities($row['PageTitle'])?>
+                <h3 class="mt-4 mb-3"><?php echo htmlentities($row['PageTitle'])?>
             
                 </h3>
 
@@ -46,7 +46,7 @@
                 
             </div>
             <div class="col-md-4">
-                <h4>Follow Us</h4>
+                <h3 class="mt-4 mb-3">Follow Us</h3>
                 <!-- Add your social media icons and links here -->
                 <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
