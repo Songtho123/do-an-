@@ -68,7 +68,7 @@ function getSubCat(val) {
 
     <body class="fixed-left">
         <div id="wrapper">
-           <?php include('includes/topheader.php');?>
+           <?php include('includes/topheader_user.php');?>
              <?php include('includes/leftsidebar.php');?>
             <div class="content-page">
                 <div class="content">

@@ -2,11 +2,10 @@
 session_start();
 include('includes/config.php');
 error_reporting(0);
-if(strlen($_SESSION['login1'])==0)
-  { 
-header('location:login-author.php');
-}
- else {
+
+if(strlen($_SESSION['login1']) == 0) { 
+    header('location:login-author.php');
+} else {
     if (isset($_POST['submit'])) {
         $posttitle = $_POST['posttitle'];
         $catid = $_POST['category'];
@@ -17,40 +16,27 @@ header('location:login-author.php');
         $imgfile = $_FILES["postimage"]["name"];
         $user = $_SESSION['idctv'];
         $ctvid = $_POST['ctvid']; // Fetch CTV ID from the hidden field
-        $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
+        $extension = strtolower(substr($imgfile, -4));
         $allowed_extensions = array(".jpg", ".jpeg", ".png", ".gif");
 
-
-            if(!in_array($extension,$allowed_extensions))
-        {
+        if(!in_array($extension, $allowed_extensions)) {
             echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-        }
-        else
-        {
+        } else {
+            $imgnewfile = md5($imgfile) . $extension;
 
-            $imgnewfile=md5($imgfile).$extension;
-
-            move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
-            $status=1;
-            $query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile')");
-        if($query)
-        {
-            $msg="Post successfully added ";
+            move_uploaded_file($_FILES["postimage"]["tmp_name"], "postimages/" . $imgnewfile);
+            $status = 1;
+            
+            $stmt = $con->prepare("INSERT INTO tblposts(PostTitle, CategoryId, SubCategoryId, PostDetails, PostUrl, Is_Active, PostImage, Ctvid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("siissssi", $posttitle, $catid, $subcatid, $postdetails, $url, $status, $imgnewfile, $ctvid);
+            
+            if ($stmt->execute()) {
+                $msg = "Post successfully added ";
+            } else {
+                $error = "Something went wrong. Please try again.";    
+            } 
+            $stmt->close();
         }
-        else{
-            $error="Something went wrong . Please try again.";    
-        } 
-    }
-}
-function getCtvIdFromDatabase($username, $con) {
-    $query = mysqli_query($con, "SELECT idctv FROM tlbctv WHERE username = '$username'");
-    
-    if ($query) {
-        $result = mysqli_fetch_assoc($query);
-        return $result['idctv'];
-    } else {
-        // Handle the query error as needed
-        return "Error fetching ID";
     }
 }
 ?>
@@ -100,7 +86,7 @@ function getSubCat(val) {
 
         <div id="wrapper">
 
-           <?php include('includes/topheader.php');?>
+           <?php include('includes/topheader_user.php');?>
              <?php include('includes/leftsidebar.php');?>
 
             <div class="content-page">
@@ -200,8 +186,9 @@ function getSubCat(val) {
                                         </div>
                                         </div>
                                         <div class="form-group">
+                                        <div class="form-group">
                                         <label for="user">ID</label>
-                                        <input type="text" class="form-control" disabled value="<?php echo $_SESSION['idctv']; ?>">
+                                        <input type="text" class="form-control" value="<?php echo $_SESSION['idctv']; ?>" disabled>
                                         <input type="hidden" name="ctvid" value="<?php echo $_SESSION['idctv']; ?>">
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
@@ -272,4 +259,4 @@ function getSubCat(val) {
 
     </body>
 </html>
-<?php } ?>
+<?php ?>

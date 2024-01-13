@@ -53,7 +53,7 @@ else{
 
         <div id="wrapper">
 
-           <?php include('includes/topheader.php');?>
+           <?php include('includes/topheader_user.php');?>
 
            <?php include('includes/leftsidebar.php');?>
 

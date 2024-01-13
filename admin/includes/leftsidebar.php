@@ -66,7 +66,8 @@
                                 <ul class="list-unstyled">
                                     <li><a href="user-dashboard.php">Dashboard</a></li>
                                   <li><a href="user-post.php">Thêm bài viết</a></li>
-                                  <li><a href="user-manage-posts.php">Bài viết</a></li>
+                                  <li><a href="user-manage-posts.php">Bài viết đã thêm</a></li>
+                                  <li><a href="user-trash-posts.php">Bài viết đã xóa</a></li>
                                 </ul>
                             </li>   
                         </ul>

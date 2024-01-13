@@ -4,26 +4,26 @@ include('includes/config.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if (isset($_POST['login1'])){
+if (isset($_POST['login1'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $query = mysqli_query($con, "select * from tblctv where cccd='$username' AND ctvpassword='$password' ");
+    $query = mysqli_query($con, "SELECT * FROM tblctv WHERE cccd='$username' AND ctvpassword='$password' ");
 
-    if ($query) {
-        if (mysqli_num_rows($query) > 0) {
-            $_SESSION['username'] = $username;
-            header('location:user-dashboard.php');
-        } else {
-            echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
-        }
+    if (!$query) {
+        die("Error in query: " . mysqli_error($con));
+    }
+
+    if (mysqli_num_rows($query) > 0) {
+        $_SESSION['login1'] = $username; // Set the session variable consistent with your check
+        header('location:user-dashboard.php');
+        exit; // Ensure that the script stops after redirection
     } else {
-        echo "<script>alert('Tài khoản không có quyền truy cập');</script>";
+        echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
     }
 } else {
     echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

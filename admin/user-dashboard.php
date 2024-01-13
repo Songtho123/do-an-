@@ -41,7 +41,9 @@ header('location:login-author.php');
                 </div>
 
             </div>
-    <?php include('includes/leftsidebar.php');?>
+            <?php include('includes/topheader_user.php');?>
+            <?php include('includes/leftsidebar.php');?>
+
             <div class="content-page">
                 <div class="content">
                     <div class="container">
