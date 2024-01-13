@@ -64,6 +64,7 @@
     <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Cộng tác viên </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
+                                    <li><a href="user-dashboard.php">Công tác viên</a></li>
                                   <li><a href="user-post.php">Thêm bài viết</a></li>
                                   <li><a href="user-manage-posts.php">Bài viết</a></li>
                                 </ul>

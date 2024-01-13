@@ -125,9 +125,9 @@ while($row=mysqli_fetch_array($query))
 <td><?php echo htmlentities($row['comment']);?></td>
 <td><?php $st=$row['status'];
 if($st=='0'):
-echo "Chờ phê duyệt";
-else:
 echo "Phê duyệt";
+else:
+echo "Chờ phê duyệt";
 endif;
 ?></td>
 
