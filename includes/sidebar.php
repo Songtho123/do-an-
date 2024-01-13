@@ -9,7 +9,7 @@
            
         <input type="text" name="searchtitle" class="form-control" placeholder="Search for..." required>
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="submit">Go!</button>
+                  <button class="btn btn-primary" type="submit">Go!</button>
                 </span>
               </form>
               </div>
@@ -23,15 +23,14 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-<?php $query=mysqli_query($con,"select id,CategoryName from tblcategory");
-while($row=mysqli_fetch_array($query))
-{
-?>
-
-                    <li>
-                      <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
-                    </li>
-<?php } ?>
+                    <?php $query=mysqli_query($con,"select id,CategoryName from tblcategory");
+                    while($row=mysqli_fetch_array($query))
+                    {
+                    ?>
+                      <li>
+                        <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
+                      </li>
+                    <?php } ?>
                   </ul>
                 </div>
        
@@ -45,7 +44,7 @@ while($row=mysqli_fetch_array($query))
             <div class="card-body">
                       <ul class="mb-0">
 <?php
-$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId limit 8");
+$query = mysqli_query($con, "SELECT tblposts.id as pid, tblposts.PostTitle as posttitle FROM tblposts LEFT JOIN tblcategory ON tblcategory.id = tblposts.CategoryId LEFT JOIN tblsubcategory ON tblsubcategory.SubCategoryId = tblposts.SubCategoryId ORDER BY tblposts.id DESC LIMIT 8");
 while ($row=mysqli_fetch_array($query)) {
 
 ?>

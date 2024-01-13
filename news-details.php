@@ -81,7 +81,8 @@ endif;
     .btn-primary:hover {
         background-color: #0056b3; /* Darker blue on hover */
         border-color: #0056b3;
-    }    </style>
+    }    
+    </style>
 
   </head>
 

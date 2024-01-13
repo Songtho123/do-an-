@@ -22,26 +22,55 @@ include('includes/config.php');
     .post-details {
         background-color: white;
     }
-    #today-date {
-        text-align: center;
-        color: #007bff; /* Blue color, you can change it to your preferred color */
-        font-size: 24px; /* Adjust the font size as needed */
-        margin-top: 20px; /* Add some top margin for spacing */
-        font-weight: bold; /* Make the text bold */
-    }
     .owl-carousel .item img {
         width: 100%;
         height: 100%; /* Set a fixed height for the carousel items */
         object-fit: cover; /* Maintain aspect ratio and cover the entire container */
     }
+    .card-header {
+        background-color: #007bff; /* Change to your preferred background color */
+        color: #fff; /* Change to your preferred text color */
+        font-size: 18px; /* Adjust the font size as needed */
+        font-weight: bold; /* Add boldness for emphasis */
+    }
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333; /* Dark color for the title */
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+        color: #555; /* Slightly darker than the base color for subtitles */
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #666; /* Slightly darker than the base color for text */
+    }
+
+    .card-footer {
+        background-color: #f8f9fa; /* Light gray background for the footer */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary blue color for the button */
+        border-color: #007bff; /* Matching border color */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }    
+
 </style>
 </head>
 
 <body>
     <?php include('includes/header.php'); ?>
-    <div class="container">
-        <h4 id="today-date"></h4>
-    </div>
 <div class="container">
 <h2>Bài báo tiêu điểm</h2>
     <div class="owl-carousel">
