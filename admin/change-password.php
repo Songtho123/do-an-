@@ -219,7 +219,7 @@ return true;
                     </div> 
 
                 </div> 
-                <div class="content">
+                <!-- <div class="content">
                     <div class="container">
                         <div class="row">
 							<div class="col-xs-12">
@@ -309,7 +309,7 @@ return true;
                         </div>
                     </div> 
 
-                </div> 
+                </div>  -->
             </div>
             
         </div>

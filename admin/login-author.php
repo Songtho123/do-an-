@@ -13,7 +13,7 @@ if (isset($_POST['login1'])){
     if ($query) {
         if (mysqli_num_rows($query) > 0) {
             $_SESSION['username'] = $username;
-            header('location:user-dashbord.php');
+            header('location:user-dashboard.php');
         } else {
             echo "<script>alert('Vui lòng kiểm tra lại tài khoản, mật khẩu');</script>";
         }
