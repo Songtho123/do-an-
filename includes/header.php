@@ -43,9 +43,7 @@
                 ?>            
             </div>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Trang chủ</a>
-                </li>
+                
                 <?php
                 $query = mysqli_query($con, "select id,CategoryName from tblcategory WHERE Is_Active = 1");
                 while ($row = mysqli_fetch_array($query)) {
