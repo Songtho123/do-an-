@@ -6,21 +6,20 @@ if(strlen($_SESSION['login1'])==0)
   { 
 header('location:login-author.php');
 }
-else{
+ else {
+    if (isset($_POST['submit'])) {
+        $posttitle = $_POST['posttitle'];
+        $catid = $_POST['category'];
+        $subcatid = $_POST['subcategory'];
+        $postdetails = $_POST['postdescription'];
+        $arr = explode(" ", $posttitle);
+        $url = implode("-", $arr);
+        $imgfile = $_FILES["postimage"]["name"];
+        $user = $_SESSION['idctv'];
+        $ctvid = $_POST['ctvid']; // Fetch CTV ID from the hidden field
+        $extension = substr($imgfile, strlen($imgfile) - 4, strlen($imgfile));
+        $allowed_extensions = array(".jpg", ".jpeg", ".png", ".gif");
 
-    if(isset($_POST['submit']))
-        {
-            $posttitle=$_POST['posttitle'];
-            $catid=$_POST['category'];
-            $subcatid=$_POST['subcategory'];
-            $postdetails=$_POST['postdescription'];
-            $arr = explode(" ",$posttitle);
-            $url=implode("-",$arr);
-            $imgfile=$_FILES["postimage"]["name"];
-            $user=$_SESSION['idctv'];
-            $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-
-            $allowed_extensions = array(".jpg","jpeg",".png",".gif");
 
             if(!in_array($extension,$allowed_extensions))
         {
@@ -201,10 +200,10 @@ function getSubCat(val) {
                                         </div>
                                         </div>
                                         <div class="form-group">
-                                                    <label for="user">id</label>
-                                                    <input type="text" class="form-control" disabled value="<?php echo $_SESSION['idctv']; ?>">
-                                            </div>
-
+                                        <label for="user">ID</label>
+                                        <input type="text" class="form-control" disabled value="<?php echo $_SESSION['idctv']; ?>">
+                                        <input type="hidden" name="ctvid" value="<?php echo $_SESSION['idctv']; ?>">
+                                        </div>
                                         <button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
                                         <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
                                         </form>

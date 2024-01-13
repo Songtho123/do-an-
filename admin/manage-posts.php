@@ -19,9 +19,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'del') {
     }
 }
 
-// Handle search logic
 $searchTerm = isset($_GET['searchTerm']) ? mysqli_real_escape_string($con, $_GET['searchTerm']) : '';
-$queryCondition = $searchTerm ? "AND tblposts.PostTitle LIKE '%$searchTerm%'" : '';
+$queryCondition = $searchTerm ? "AND (tblposts.PostTitle LIKE '%$searchTerm%' OR tblcategory.CategoryName LIKE '%$searchTerm%' OR tblsubcategory.Subcategory LIKE '%$searchTerm%' OR tblposts.Ctvid LIKE '%$searchTerm%')" : '';
 
 $query = mysqli_query($con, "SELECT tblposts.id as postid, tblposts.PostTitle as title,tblposts.Ctvid as Ctvid, tblcategory.CategoryName as category, tblsubcategory.Subcategory as subcategory FROM tblposts LEFT JOIN tblcategory ON tblcategory.id = tblposts.CategoryId LEFT JOIN tblsubcategory ON tblsubcategory.SubCategoryId = tblposts.SubCategoryId WHERE tblposts.Is_Active = 1 $queryCondition");
 $rowcount = mysqli_num_rows($query);
