@@ -60,18 +60,18 @@ header('location:index.php');
 						</div>
 
 
-<div class="row">
-<div class="col-sm-6">  
-</div>
+                    <div class="row">
+                    <div class="col-sm-6">  
+                    </div>
 
                                     <div class="row">
 										<div class="col-md-12">
 											<div class="demo-box m-t-20">
-<div class="m-b-30">
-<a href="add-user.php">
-<button id="addToTable" class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline" ></i></button>
-</a>
- </div>
+                                                <div class="m-b-30">
+                                                <a href="add-user.php">
+                                                <button id="addToTable" class="btn btn-success waves-effect waves-light">Add <i class="mdi mdi-plus-circle-outline" ></i></button>
+                                                </a>
+                                                </div>
 
 												<div class="table-responsive">
                                                     <table class="table m-0 table-colored-bordered table-bordered-primary">
@@ -92,11 +92,11 @@ header('location:index.php');
                                                         <tbody>
         <?php
            
-$query=mysqli_query($con,"Select idctv,name,cccd,ctvpassword,email,phone,Birthday,city,CreationDate from  tblctv");
-$cnt=1;
-while($row=mysqli_fetch_array($query))
-{
-?>
+            $query=mysqli_query($con,"Select idctv,name,cccd,ctvpassword,email,phone,Birthday,city,CreationDate from  tblctv");
+            $cnt=1;
+            while($row=mysqli_fetch_array($query))
+            {
+            ?>
 
         <tr>
             <td><?php echo $row['idctv']?></td>

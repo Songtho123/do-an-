@@ -23,13 +23,15 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-                    <?php $query=mysqli_query($con,"select id,CategoryName from tblcategory");
-                    while($row=mysqli_fetch_array($query))
-                    {
-                    ?>
-                      <li>
-                        <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
-                      </li>
+                  <?php
+                    $query = mysqli_query($con, "SELECT id, CategoryName FROM tblcategory WHERE Is_Active = 1");
+                    while ($row = mysqli_fetch_array($query)) {
+                        ?>
+                        <li>
+                            <a style="color: black;" href="category.php?catid=<?php echo htmlentities($row['id']) ?>">
+                                <?php echo htmlentities($row['CategoryName']); ?>
+                            </a>
+                        </li>
                     <?php } ?>
                   </ul>
                 </div>
@@ -42,14 +44,12 @@
           <div class="card my-4 sticky-700">
             <h5 class="card-header">Recent News</h5>
             <div class="card-body">
-                      <ul class="mb-0">
-<?php
-$query = mysqli_query($con, "SELECT tblposts.id as pid, tblposts.PostTitle as posttitle FROM tblposts LEFT JOIN tblcategory ON tblcategory.id = tblposts.CategoryId LEFT JOIN tblsubcategory ON tblsubcategory.SubCategoryId = tblposts.SubCategoryId ORDER BY tblposts.id DESC LIMIT 8");
-while ($row=mysqli_fetch_array($query)) {
-
-?>
-
-  <li>
+              <ul class="mb-0">
+                <?php
+                $query = mysqli_query($con, "SELECT tblposts.id as pid, tblposts.PostTitle as posttitle FROM tblposts LEFT JOIN tblcategory ON tblcategory.id = tblposts.CategoryId LEFT JOIN tblsubcategory ON tblsubcategory.SubCategoryId = tblposts.SubCategoryId ORDER BY tblposts.id DESC LIMIT 8");
+                while ($row=mysqli_fetch_array($query)) {
+                ?>
+                  <li>
                       <a style="color: black;" href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
                     </li>
             <?php } ?>

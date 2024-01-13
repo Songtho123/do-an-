@@ -8,42 +8,51 @@ header('location:login-author.php');
 }
 else{
 
-if(isset($_POST['submit']))
-{
-$posttitle=$_POST['posttitle'];
-$catid=$_POST['category'];
-$subcatid=$_POST['subcategory'];
-$postdetails=$_POST['postdescription'];
-$arr = explode(" ",$posttitle);
-$url=implode("-",$arr);
-$imgfile=$_FILES["postimage"]["name"];
+    if(isset($_POST['submit']))
+        {
+            $posttitle=$_POST['posttitle'];
+            $catid=$_POST['category'];
+            $subcatid=$_POST['subcategory'];
+            $postdetails=$_POST['postdescription'];
+            $arr = explode(" ",$posttitle);
+            $url=implode("-",$arr);
+            $imgfile=$_FILES["postimage"]["name"];
+            $user=$_SESSION['idctv'];
+            $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 
-$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
+            $allowed_extensions = array(".jpg","jpeg",".png",".gif");
 
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
+            if(!in_array($extension,$allowed_extensions))
+        {
+            echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+        }
+        else
+        {
 
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+            $imgnewfile=md5($imgfile).$extension;
+
+            move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+            $status=1;
+            $query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile')");
+        if($query)
+        {
+            $msg="Post successfully added ";
+        }
+        else{
+            $error="Something went wrong . Please try again.";    
+        } 
+    }
 }
-else
-{
-
-$imgnewfile=md5($imgfile).$extension;
-
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
-
-$status=1;
-$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile')");
-if($query)
-{
-$msg="Post successfully added ";
-}
-else{
-$error="Something went wrong . Please try again.";    
-} 
-
-}
+function getCtvIdFromDatabase($username, $con) {
+    $query = mysqli_query($con, "SELECT idctv FROM tlbctv WHERE username = '$username'");
+    
+    if ($query) {
+        $result = mysqli_fetch_assoc($query);
+        return $result['idctv'];
+    } else {
+        // Handle the query error as needed
+        return "Error fetching ID";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -192,8 +201,8 @@ function getSubCat(val) {
                                         </div>
                                         </div>
                                         <div class="form-group">
-                                                    <label for="admin">name</label>
-                                                    <input type="text" class="form-control" disabled value="admin">
+                                                    <label for="user">id</label>
+                                                    <input type="text" class="form-control" disabled value="<?php echo $_SESSION['idctv']; ?>">
                                             </div>
 
                                         <button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
